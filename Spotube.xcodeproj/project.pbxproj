@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		126571C678685952F320D66B /* Pods_Spotube.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E92D9BDF1F98256B2B93FE33 /* Pods_Spotube.framework */; };
+		64330D1041E55E490229CD94 /* Pods_SpotubeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5653608145BEE6ADB060BCA /* Pods_SpotubeTests.framework */; };
 		71D28B9122AA9F77007F4A31 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71D28B9022AA9F77007F4A31 /* AppDelegate.swift */; };
 		71D28B9322AA9F77007F4A31 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71D28B9222AA9F77007F4A31 /* ViewController.swift */; };
 		71D28B9622AA9F77007F4A31 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71D28B9422AA9F77007F4A31 /* Main.storyboard */; };
@@ -50,7 +51,10 @@
 		71D28BAF22AA9F79007F4A31 /* SpotubeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpotubeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		71D28BB322AA9F79007F4A31 /* SpotubeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotubeUITests.swift; sourceTree = "<group>"; };
 		71D28BB522AA9F79007F4A31 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7E27A8783F380173CCF7CEA4 /* Pods-SpotubeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpotubeTests.debug.xcconfig"; path = "Target Support Files/Pods-SpotubeTests/Pods-SpotubeTests.debug.xcconfig"; sourceTree = "<group>"; };
+		90960813390D12474BAA755C /* Pods-SpotubeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpotubeTests.release.xcconfig"; path = "Target Support Files/Pods-SpotubeTests/Pods-SpotubeTests.release.xcconfig"; sourceTree = "<group>"; };
 		A5CA800331A2D40FCDC227B1 /* Pods-Spotube.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Spotube.release.xcconfig"; path = "Target Support Files/Pods-Spotube/Pods-Spotube.release.xcconfig"; sourceTree = "<group>"; };
+		C5653608145BEE6ADB060BCA /* Pods_SpotubeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpotubeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6BA3C1DE127850F2EAA5C14 /* Pods-Spotube.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Spotube.debug.xcconfig"; path = "Target Support Files/Pods-Spotube/Pods-Spotube.debug.xcconfig"; sourceTree = "<group>"; };
 		E92D9BDF1F98256B2B93FE33 /* Pods_Spotube.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Spotube.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -68,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				64330D1041E55E490229CD94 /* Pods_SpotubeTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,6 +90,7 @@
 			isa = PBXGroup;
 			children = (
 				E92D9BDF1F98256B2B93FE33 /* Pods_Spotube.framework */,
+				C5653608145BEE6ADB060BCA /* Pods_SpotubeTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -148,6 +154,8 @@
 			children = (
 				C6BA3C1DE127850F2EAA5C14 /* Pods-Spotube.debug.xcconfig */,
 				A5CA800331A2D40FCDC227B1 /* Pods-Spotube.release.xcconfig */,
+				7E27A8783F380173CCF7CEA4 /* Pods-SpotubeTests.debug.xcconfig */,
+				90960813390D12474BAA755C /* Pods-SpotubeTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -178,9 +186,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 71D28BBB22AA9F79007F4A31 /* Build configuration list for PBXNativeTarget "SpotubeTests" */;
 			buildPhases = (
+				BA1741E35018D581F523328E /* [CP] Check Pods Manifest.lock */,
 				71D28BA022AA9F79007F4A31 /* Sources */,
 				71D28BA122AA9F79007F4A31 /* Frameworks */,
 				71D28BA222AA9F79007F4A31 /* Resources */,
+				3F3376F959E0F64C3877A62B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -281,6 +291,28 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		3F3376F959E0F64C3877A62B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SpotubeTests/Pods-SpotubeTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SpotubeTests/Pods-SpotubeTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		7CDF8396097CC1192A1E5ACA /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -305,6 +337,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Spotube/Pods-Spotube-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BA1741E35018D581F523328E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SpotubeTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		BFFFF1C0C3F78A18F470997D /* [CP] Check Pods Manifest.lock */ = {
@@ -515,6 +569,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = A62T4XMM89;
 				INFOPLIST_FILE = Spotube/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -533,6 +588,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = A62T4XMM89;
 				INFOPLIST_FILE = Spotube/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -547,6 +603,7 @@
 		};
 		71D28BBC22AA9F79007F4A31 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7E27A8783F380173CCF7CEA4 /* Pods-SpotubeTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -567,6 +624,7 @@
 		};
 		71D28BBD22AA9F79007F4A31 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 90960813390D12474BAA755C /* Pods-SpotubeTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";

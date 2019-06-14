@@ -1,5 +1,12 @@
 use_frameworks!
 target 'Spotube' do
+  
     pod 'Alamofire'
+    
+    target 'SpotubeTests' do
+      inherit! :search_paths
+      pod 'Alamofire'
+    end
+    
     pod 'JGProgressHUD'
 end
