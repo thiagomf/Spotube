@@ -41,6 +41,9 @@
                                     <constraint firstAttribute="width" constant="230" id="QXX-K3-rPH"/>
                                 </constraints>
                                 <state key="normal" title="Spotify"/>
+                                <connections>
+                                    <action selector="connectSpot:" destination="3a1-my-vyJ" eventType="touchUpInside" id="tjH-aw-TK2"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qyl-yJ-OGc">
                                 <rect key="frame" x="92" y="415" width="230" height="70"/>

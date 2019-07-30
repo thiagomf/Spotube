@@ -16,5 +16,12 @@ class ViewController: UIViewController {
         print("Hello world")
     }
 
+    
+    @IBAction func connectSpot(_ sender: Any) {
+        
+        let requestedScopes: SPTScope = [.appRemoteControl, .playlistReadPrivate]
+        AppDelegate().sessionManager.initiateSession(with: requestedScopes, options: .default)
+    }
+    
 }
 

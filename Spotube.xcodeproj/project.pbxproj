@@ -17,6 +17,7 @@
 		71D28B9E22AA9F79007F4A31 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71D28B9C22AA9F79007F4A31 /* LaunchScreen.storyboard */; };
 		71D28BA922AA9F79007F4A31 /* SpotubeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71D28BA822AA9F79007F4A31 /* SpotubeTests.swift */; };
 		71D28BB422AA9F79007F4A31 /* SpotubeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71D28BB322AA9F79007F4A31 /* SpotubeUITests.swift */; };
+		863138EB22F0ADEE0097A72E /* SpotifyiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 863138EA22F0ADED0097A72E /* SpotifyiOS.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,8 @@
 		71D28BB322AA9F79007F4A31 /* SpotubeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotubeUITests.swift; sourceTree = "<group>"; };
 		71D28BB522AA9F79007F4A31 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7E27A8783F380173CCF7CEA4 /* Pods-SpotubeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpotubeTests.debug.xcconfig"; path = "Target Support Files/Pods-SpotubeTests/Pods-SpotubeTests.debug.xcconfig"; sourceTree = "<group>"; };
+		863138EA22F0ADED0097A72E /* SpotifyiOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpotifyiOS.framework; path = Spotube/SpotifyiOS.framework; sourceTree = "<group>"; };
+		863138ED22F0AF740097A72E /* Spotube-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Spotube-Bridging-Header.h"; sourceTree = "<group>"; };
 		90960813390D12474BAA755C /* Pods-SpotubeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpotubeTests.release.xcconfig"; path = "Target Support Files/Pods-SpotubeTests/Pods-SpotubeTests.release.xcconfig"; sourceTree = "<group>"; };
 		A5CA800331A2D40FCDC227B1 /* Pods-Spotube.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Spotube.release.xcconfig"; path = "Target Support Files/Pods-Spotube/Pods-Spotube.release.xcconfig"; sourceTree = "<group>"; };
 		C5653608145BEE6ADB060BCA /* Pods_SpotubeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpotubeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -65,6 +68,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				126571C678685952F320D66B /* Pods_Spotube.framework in Frameworks */,
+				863138EB22F0ADEE0097A72E /* SpotifyiOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,6 +93,7 @@
 		1E9A85F5716040A722DA868E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				863138EA22F0ADED0097A72E /* SpotifyiOS.framework */,
 				E92D9BDF1F98256B2B93FE33 /* Pods_Spotube.framework */,
 				C5653608145BEE6ADB060BCA /* Pods_SpotubeTests.framework */,
 			);
@@ -127,6 +132,7 @@
 				71D28B9C22AA9F79007F4A31 /* LaunchScreen.storyboard */,
 				71D28B9F22AA9F79007F4A31 /* Info.plist */,
 				71D28B9722AA9F77007F4A31 /* Spotube.xcdatamodeld */,
+				863138ED22F0AF740097A72E /* Spotube-Bridging-Header.h */,
 			);
 			path = Spotube;
 			sourceTree = "<group>";
@@ -232,6 +238,7 @@
 				TargetAttributes = {
 					71D28B8C22AA9F77007F4A31 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1030;
 					};
 					71D28BA322AA9F79007F4A31 = {
 						CreatedOnToolsVersion = 10.1;
@@ -568,16 +575,37 @@
 			baseConfigurationReference = C6BA3C1DE127850F2EAA5C14 /* Pods-Spotube.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = A62T4XMM89;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Spotube",
+				);
 				INFOPLIST_FILE = Spotube/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					"\"Alamofire\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"JGProgressHUD\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"UIKit\"",
+					"-ObjC",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.br.thiagomf.Spotube;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_OBJC_BRIDGING_HEADER = "Spotube/Spotube-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -587,16 +615,36 @@
 			baseConfigurationReference = A5CA800331A2D40FCDC227B1 /* Pods-Spotube.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = A62T4XMM89;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Spotube",
+				);
 				INFOPLIST_FILE = Spotube/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					"\"Alamofire\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"JGProgressHUD\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"UIKit\"",
+					"-ObjC",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.br.thiagomf.Spotube;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_OBJC_BRIDGING_HEADER = "Spotube/Spotube-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
