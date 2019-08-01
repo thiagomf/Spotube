@@ -8,6 +8,21 @@
 
 import UIKit
 
-class SpotifyLoginWorker: NSObject {
+protocol SpotifyLoginWorkerDelegate
+{
+    func spotifyLogger(user: User?)
+}
 
+class SpotifyLoginWorker: NSObject, SpotifyLoginOutputProtocol {
+
+    var spotifyLoginAPI: SpotifyLoginAPIInputProtocol = SpotifyLoginAPI()
+    var worker: SpotifyLoginWorkerDelegate?
+    
+    func fetchLoginSpotify(request: SpotifyLogin.FetchUser.Request) {
+        spotifyLoginAPI.callAPILogin(request: request)
+    }
+    
+    func fetchUserSpotify(user: User?) {
+        worker?.spotifyLogger(user: user)
+    }
 }

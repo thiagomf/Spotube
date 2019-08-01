@@ -8,6 +8,33 @@
 
 import UIKit
 
-class SpotifyLoginModels: NSObject {
-
+enum SpotifyLogin
+{
+    // MARK: Use cases
+    
+    enum FetchUser
+    {
+        struct Request
+        {
+            var token: String
+        }
+        
+        struct Response
+        {
+            var user: User?
+        }
+        
+        struct ViewModel
+        {
+            struct DisplayedUser
+            {
+                var country: String
+                var displayName: String
+                var email: String
+                var image: String
+            }
+            
+            var displayedUser: DisplayedUser
+        }
+    }
 }

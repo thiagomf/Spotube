@@ -8,11 +8,20 @@
 
 import UIKit
 
+protocol SpotifyLoginDisplayLogic: class {
+    
+    var interactor: SotifyLoginBusinessLogic? { get set }
+    
+    func displayFetchedUser(viewModel: SpotifyLogin.FetchUser.ViewModel?)
+}
+
 class SpotifyLoginViewController: UIViewController {
 
+    var interactor: SotifyLoginBusinessLogic?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
         print("Hello world")
     }
 
@@ -21,7 +30,17 @@ class SpotifyLoginViewController: UIViewController {
         
         let requestedScopes: SPTScope = [.appRemoteControl, .playlistReadPrivate]
         AppDelegate().sessionManager.initiateSession(with: requestedScopes, options: .default)
+        
+        let request = SpotifyLogin.FetchUser.Request(token: "XXXYYYY")
+        interactor?.fetchLoginUser(request: request)
     }
     
+}
+
+extension SpotifyLoginViewController: SpotifyLoginDisplayLogic {
+    
+    func displayFetchedUser(viewModel: SpotifyLogin.FetchUser.ViewModel?) {
+        print("Name: \(String(describing: viewModel?.displayedUser.displayName))")
+    }
 }
 

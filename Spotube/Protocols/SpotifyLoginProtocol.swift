@@ -8,6 +8,10 @@
 
 import UIKit
 
-class SpotifyLoginProtocol: NSObject {
 
-}
+
+
+
+
+
+
