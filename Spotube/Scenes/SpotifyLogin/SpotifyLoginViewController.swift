@@ -21,7 +21,6 @@ class SpotifyLoginViewController: UIViewController {
         
         let requestedScopes: SPTScope = [.appRemoteControl, .playlistReadPrivate]
         AppDelegate().sessionManager.initiateSession(with: requestedScopes, options: .default)
-    
     }
     
 }

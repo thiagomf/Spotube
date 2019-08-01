@@ -13,7 +13,7 @@
         <!--Navigation Controller-->
         <scene sceneID="g22-Au-xwl">
             <objects>
-                <navigationController id="uIt-vL-4Jl" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="SpotifyLogin" id="uIt-vL-4Jl" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="sNa-Xc-0fk">
                         <rect key="frame" x="0.0" y="20" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
