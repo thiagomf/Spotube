@@ -10,14 +10,22 @@
 		126571C678685952F320D66B /* Pods_Spotube.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E92D9BDF1F98256B2B93FE33 /* Pods_Spotube.framework */; };
 		64330D1041E55E490229CD94 /* Pods_SpotubeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5653608145BEE6ADB060BCA /* Pods_SpotubeTests.framework */; };
 		71D28B9122AA9F77007F4A31 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71D28B9022AA9F77007F4A31 /* AppDelegate.swift */; };
-		71D28B9322AA9F77007F4A31 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71D28B9222AA9F77007F4A31 /* ViewController.swift */; };
-		71D28B9622AA9F77007F4A31 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71D28B9422AA9F77007F4A31 /* Main.storyboard */; };
+		71D28B9322AA9F77007F4A31 /* SpotifyLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71D28B9222AA9F77007F4A31 /* SpotifyLoginViewController.swift */; };
 		71D28B9922AA9F77007F4A31 /* Spotube.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 71D28B9722AA9F77007F4A31 /* Spotube.xcdatamodeld */; };
 		71D28B9B22AA9F79007F4A31 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 71D28B9A22AA9F79007F4A31 /* Assets.xcassets */; };
 		71D28B9E22AA9F79007F4A31 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71D28B9C22AA9F79007F4A31 /* LaunchScreen.storyboard */; };
 		71D28BA922AA9F79007F4A31 /* SpotubeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71D28BA822AA9F79007F4A31 /* SpotubeTests.swift */; };
 		71D28BB422AA9F79007F4A31 /* SpotubeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71D28BB322AA9F79007F4A31 /* SpotubeUITests.swift */; };
 		863138EB22F0ADEE0097A72E /* SpotifyiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 863138EA22F0ADED0097A72E /* SpotifyiOS.framework */; };
+		86F45BEF22F275DA0024C165 /* SpotifyAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F45BEE22F275DA0024C165 /* SpotifyAPI.swift */; };
+		86F45BF122F275E80024C165 /* YoutubeApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F45BF022F275E80024C165 /* YoutubeApi.swift */; };
+		86F45BF422F2762F0024C165 /* SpotifyLoginProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F45BF322F2762F0024C165 /* SpotifyLoginProtocol.swift */; };
+		86F45BF822F2773D0024C165 /* SpotifyLoginInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F45BF722F2773D0024C165 /* SpotifyLoginInteractor.swift */; };
+		86F45BFA22F277EC0024C165 /* SpotifyLoginRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F45BF922F277EC0024C165 /* SpotifyLoginRouter.swift */; };
+		86F45BFC22F2781A0024C165 /* SpotifyLoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F45BFB22F2781A0024C165 /* SpotifyLoginPresenter.swift */; };
+		86F45BFE22F2786D0024C165 /* SpotifyLogin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86F45BFD22F2786D0024C165 /* SpotifyLogin.storyboard */; };
+		86F45C0022F278DF0024C165 /* SpotifyLoginModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F45BFF22F278DF0024C165 /* SpotifyLoginModels.swift */; };
+		86F45C0222F279D00024C165 /* SpotifyLoginWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F45C0122F279D00024C165 /* SpotifyLoginWorker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,8 +48,7 @@
 /* Begin PBXFileReference section */
 		71D28B8D22AA9F77007F4A31 /* Spotube.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spotube.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		71D28B9022AA9F77007F4A31 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		71D28B9222AA9F77007F4A31 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		71D28B9522AA9F77007F4A31 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		71D28B9222AA9F77007F4A31 /* SpotifyLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyLoginViewController.swift; sourceTree = "<group>"; };
 		71D28B9822AA9F77007F4A31 /* Spotube.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Spotube.xcdatamodel; sourceTree = "<group>"; };
 		71D28B9A22AA9F79007F4A31 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		71D28B9D22AA9F79007F4A31 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -55,6 +62,15 @@
 		7E27A8783F380173CCF7CEA4 /* Pods-SpotubeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpotubeTests.debug.xcconfig"; path = "Target Support Files/Pods-SpotubeTests/Pods-SpotubeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		863138EA22F0ADED0097A72E /* SpotifyiOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpotifyiOS.framework; path = Spotube/SpotifyiOS.framework; sourceTree = "<group>"; };
 		863138ED22F0AF740097A72E /* Spotube-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Spotube-Bridging-Header.h"; sourceTree = "<group>"; };
+		86F45BEE22F275DA0024C165 /* SpotifyAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyAPI.swift; sourceTree = "<group>"; };
+		86F45BF022F275E80024C165 /* YoutubeApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeApi.swift; sourceTree = "<group>"; };
+		86F45BF322F2762F0024C165 /* SpotifyLoginProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyLoginProtocol.swift; sourceTree = "<group>"; };
+		86F45BF722F2773D0024C165 /* SpotifyLoginInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyLoginInteractor.swift; sourceTree = "<group>"; };
+		86F45BF922F277EC0024C165 /* SpotifyLoginRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyLoginRouter.swift; sourceTree = "<group>"; };
+		86F45BFB22F2781A0024C165 /* SpotifyLoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyLoginPresenter.swift; sourceTree = "<group>"; };
+		86F45BFD22F2786D0024C165 /* SpotifyLogin.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SpotifyLogin.storyboard; sourceTree = "<group>"; };
+		86F45BFF22F278DF0024C165 /* SpotifyLoginModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyLoginModels.swift; sourceTree = "<group>"; };
+		86F45C0122F279D00024C165 /* SpotifyLoginWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyLoginWorker.swift; sourceTree = "<group>"; };
 		90960813390D12474BAA755C /* Pods-SpotubeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpotubeTests.release.xcconfig"; path = "Target Support Files/Pods-SpotubeTests/Pods-SpotubeTests.release.xcconfig"; sourceTree = "<group>"; };
 		A5CA800331A2D40FCDC227B1 /* Pods-Spotube.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Spotube.release.xcconfig"; path = "Target Support Files/Pods-Spotube/Pods-Spotube.release.xcconfig"; sourceTree = "<group>"; };
 		C5653608145BEE6ADB060BCA /* Pods_SpotubeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpotubeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -125,14 +141,11 @@
 		71D28B8F22AA9F77007F4A31 /* Spotube */ = {
 			isa = PBXGroup;
 			children = (
-				71D28B9022AA9F77007F4A31 /* AppDelegate.swift */,
-				71D28B9222AA9F77007F4A31 /* ViewController.swift */,
-				71D28B9422AA9F77007F4A31 /* Main.storyboard */,
-				71D28B9A22AA9F79007F4A31 /* Assets.xcassets */,
-				71D28B9C22AA9F79007F4A31 /* LaunchScreen.storyboard */,
-				71D28B9F22AA9F79007F4A31 /* Info.plist */,
-				71D28B9722AA9F77007F4A31 /* Spotube.xcdatamodeld */,
-				863138ED22F0AF740097A72E /* Spotube-Bridging-Header.h */,
+				86F45BEC22F2756D0024C165 /* Application */,
+				86F45BEA22F2753E0024C165 /* Network */,
+				86F45BEB22F275500024C165 /* Protocols */,
+				86F45BF522F276410024C165 /* Resources */,
+				86F45BED22F2759F0024C165 /* Scenes */,
 			);
 			path = Spotube;
 			sourceTree = "<group>";
@@ -153,6 +166,73 @@
 				71D28BB522AA9F79007F4A31 /* Info.plist */,
 			);
 			path = SpotubeUITests;
+			sourceTree = "<group>";
+		};
+		86F45BEA22F2753E0024C165 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				86F45C0322F27A1D0024C165 /* Model */,
+				86F45BEE22F275DA0024C165 /* SpotifyAPI.swift */,
+				86F45BF022F275E80024C165 /* YoutubeApi.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		86F45BEB22F275500024C165 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				86F45BF322F2762F0024C165 /* SpotifyLoginProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		86F45BEC22F2756D0024C165 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				71D28B9022AA9F77007F4A31 /* AppDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		86F45BED22F2759F0024C165 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				86F45BF222F276110024C165 /* SpotifyLogin */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		86F45BF222F276110024C165 /* SpotifyLogin */ = {
+			isa = PBXGroup;
+			children = (
+				86F45BFD22F2786D0024C165 /* SpotifyLogin.storyboard */,
+				71D28B9222AA9F77007F4A31 /* SpotifyLoginViewController.swift */,
+				86F45BF722F2773D0024C165 /* SpotifyLoginInteractor.swift */,
+				86F45BF922F277EC0024C165 /* SpotifyLoginRouter.swift */,
+				86F45BFB22F2781A0024C165 /* SpotifyLoginPresenter.swift */,
+				86F45BFF22F278DF0024C165 /* SpotifyLoginModels.swift */,
+				86F45C0122F279D00024C165 /* SpotifyLoginWorker.swift */,
+			);
+			path = SpotifyLogin;
+			sourceTree = "<group>";
+		};
+		86F45BF522F276410024C165 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				71D28B9C22AA9F79007F4A31 /* LaunchScreen.storyboard */,
+				71D28B9A22AA9F79007F4A31 /* Assets.xcassets */,
+				71D28B9F22AA9F79007F4A31 /* Info.plist */,
+				863138ED22F0AF740097A72E /* Spotube-Bridging-Header.h */,
+				71D28B9722AA9F77007F4A31 /* Spotube.xcdatamodeld */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		86F45C0322F27A1D0024C165 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		9AC14AA41555A5E719C773A3 /* Pods */ = {
@@ -277,7 +357,7 @@
 			files = (
 				71D28B9E22AA9F79007F4A31 /* LaunchScreen.storyboard in Resources */,
 				71D28B9B22AA9F79007F4A31 /* Assets.xcassets in Resources */,
-				71D28B9622AA9F77007F4A31 /* Main.storyboard in Resources */,
+				86F45BFE22F2786D0024C165 /* SpotifyLogin.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -397,9 +477,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				71D28B9322AA9F77007F4A31 /* ViewController.swift in Sources */,
+				86F45BF422F2762F0024C165 /* SpotifyLoginProtocol.swift in Sources */,
+				86F45BFC22F2781A0024C165 /* SpotifyLoginPresenter.swift in Sources */,
+				71D28B9322AA9F77007F4A31 /* SpotifyLoginViewController.swift in Sources */,
+				86F45BF822F2773D0024C165 /* SpotifyLoginInteractor.swift in Sources */,
+				86F45BFA22F277EC0024C165 /* SpotifyLoginRouter.swift in Sources */,
+				86F45BF122F275E80024C165 /* YoutubeApi.swift in Sources */,
+				86F45C0022F278DF0024C165 /* SpotifyLoginModels.swift in Sources */,
+				86F45C0222F279D00024C165 /* SpotifyLoginWorker.swift in Sources */,
 				71D28B9122AA9F77007F4A31 /* AppDelegate.swift in Sources */,
 				71D28B9922AA9F77007F4A31 /* Spotube.xcdatamodeld in Sources */,
+				86F45BEF22F275DA0024C165 /* SpotifyAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -435,14 +523,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		71D28B9422AA9F77007F4A31 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				71D28B9522AA9F77007F4A31 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		71D28B9C22AA9F79007F4A31 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -582,7 +662,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Spotube",
 				);
-				INFOPLIST_FILE = Spotube/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Spotube/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -603,7 +683,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.br.thiagomf.Spotube;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "Spotube/Spotube-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "Spotube/Resources/Spotube-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -622,7 +702,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Spotube",
 				);
-				INFOPLIST_FILE = Spotube/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Spotube/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -643,7 +723,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.br.thiagomf.Spotube;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "Spotube/Spotube-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "Spotube/Resources/Spotube-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

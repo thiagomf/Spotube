@@ -28,7 +28,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate,
             let tokenRefreshURL = URL(string: "https://spotube.glitch.me/api/refresh_token") {
             self.configuration.tokenSwapURL = tokenSwapURL
             self.configuration.tokenRefreshURL = tokenRefreshURL
-//            self.configuration.playURI = ""
         }
         let manager = SPTSessionManager(configuration: self.configuration, delegate: self)
         return manager
@@ -83,12 +82,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate,
     func sessionManager(manager: SPTSessionManager, didInitiate session: SPTSession) {
         self.appRemote.connectionParameters.accessToken = session.accessToken
         self.appRemote.connect()
-        
+
         print("success", session)
     }
+
     func sessionManager(manager: SPTSessionManager, didFailWith error: Error) {
         print("fail", error)
     }
+
     func sessionManager(manager: SPTSessionManager, didRenew session: SPTSession) {
         print("renewed", session)
     }
@@ -96,12 +97,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate,
     func appRemoteDidEstablishConnection(_ appRemote: SPTAppRemote) {
         print("connected")
     }
+    
     func appRemote(_ appRemote: SPTAppRemote, didDisconnectWithError error: Error?) {
         print("disconnected")
     }
+    
     func appRemote(_ appRemote: SPTAppRemote, didFailConnectionAttemptWithError error: Error?) {
         print("failed")
     }
+    
     func playerStateDidChange(_ playerState: SPTAppRemotePlayerState) {
         debugPrint("Track name: %@", playerState.track.name)
         print("player state changed")

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class SpotifyLoginViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +21,7 @@ class ViewController: UIViewController {
         
         let requestedScopes: SPTScope = [.appRemoteControl, .playlistReadPrivate]
         AppDelegate().sessionManager.initiateSession(with: requestedScopes, options: .default)
+    
     }
     
 }
