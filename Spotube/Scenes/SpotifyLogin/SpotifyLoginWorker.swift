@@ -19,6 +19,7 @@ class SpotifyLoginWorker: NSObject, SpotifyLoginOutputProtocol {
     var worker: SpotifyLoginWorkerDelegate?
     
     func fetchLoginSpotify(request: SpotifyLogin.FetchUser.Request) {
+        spotifyLoginAPI.remoteRequestHandler = self
         spotifyLoginAPI.callAPILogin(request: request)
     }
     

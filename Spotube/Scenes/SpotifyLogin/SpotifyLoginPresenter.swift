@@ -11,6 +11,8 @@ import UIKit
 protocol SpotifyLoginPresentationLogic {
     
     func presentFetchedUser(response: SpotifyLogin.FetchUser.Response)
+    
+    func presentNilUser()
 }
 
 class SpotifyLoginPresenter: NSObject, SpotifyLoginPresentationLogic {
@@ -23,16 +25,18 @@ class SpotifyLoginPresenter: NSObject, SpotifyLoginPresentationLogic {
             let displayedUser = convertUser(user: user)
             let viewModel = SpotifyLogin.FetchUser.ViewModel(displayedUser: displayedUser)
             viewController?.displayFetchedUser(viewModel: viewModel)
-        } else {
-            viewController?.displayFetchedUser(viewModel: nil)
         }
+    }
+    
+    func presentNilUser() {
+        viewController?.displayFetchedUser(viewModel: nil)
     }
     
     private func convertUser(user: User) -> SpotifyLogin.FetchUser.ViewModel.DisplayedUser
     {
-        let userViewModel = SpotifyLogin.FetchUser.ViewModel.DisplayedUser(country: user.country,
+        let userViewModel = SpotifyLogin.FetchUser.ViewModel.DisplayedUser(country: "",
                                                                            displayName: user.displayName,
-                                                                           email: user.email,
+                                                                           email: "",
                                                                            image: user.images[0].url)
         
         return userViewModel

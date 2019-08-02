@@ -45,10 +45,23 @@
                                     <action selector="connectSpot:" destination="3a1-my-vyJ" eventType="touchUpInside" id="tjH-aw-TK2"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ChG-sI-Xai">
+                                <rect key="frame" x="149" y="490" width="116" height="85"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="116" id="97P-1G-mHJ"/>
+                                    <constraint firstAttribute="height" constant="85" id="xnv-a7-TOg"/>
+                                </constraints>
+                                <state key="normal" title="Teste"/>
+                                <connections>
+                                    <action selector="teste:" destination="3a1-my-vyJ" eventType="touchUpInside" id="8fJ-WQ-oi9"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="ChG-sI-Xai" firstAttribute="centerX" secondItem="RTz-Wo-M3c" secondAttribute="centerX" id="3fA-U5-3L0"/>
                             <constraint firstItem="SRR-Xn-qkc" firstAttribute="centerX" secondItem="RTz-Wo-M3c" secondAttribute="centerX" id="77Y-jJ-lN6"/>
+                            <constraint firstItem="ChG-sI-Xai" firstAttribute="top" secondItem="SRR-Xn-qkc" secondAttribute="bottom" constant="55" id="B11-Kb-XBs"/>
                             <constraint firstItem="SRR-Xn-qkc" firstAttribute="centerY" secondItem="RTz-Wo-M3c" secondAttribute="centerY" id="jVH-GO-HgA"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="RTz-Wo-M3c"/>
@@ -57,7 +70,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OBN-hF-C1R" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="311.59420289855075" y="124.55357142857142"/>
+            <point key="canvasLocation" x="311.59420289855075" y="123.91304347826087"/>
         </scene>
     </scenes>
 </document>

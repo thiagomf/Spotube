@@ -19,19 +19,40 @@ class SpotifyLoginViewController: UIViewController {
 
     var interactor: SotifyLoginBusinessLogic?
     
+    let delegate = UIApplication.shared.delegate as! AppDelegate
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         print("Hello world")
+        
+        setup()
     }
 
+    func setup() {
+        
+        let viewController = self
+        let interactor = SpotifyLoginInteractor()
+        let presenter = SpotifyLoginPresenter()
+        viewController.interactor = interactor
+        interactor.presenter = presenter
+        presenter.viewController = viewController
+
+    }
     
     @IBAction func connectSpot(_ sender: Any) {
         
         let requestedScopes: SPTScope = [.appRemoteControl, .playlistReadPrivate]
-        AppDelegate().sessionManager.initiateSession(with: requestedScopes, options: .default)
         
-        let request = SpotifyLogin.FetchUser.Request(token: "XXXYYYY")
+        delegate.sessionManager.initiateSession(with: requestedScopes, options: .default)
+    }
+    
+    
+    @IBAction func teste(_ sender: Any) {
+        
+        let token = delegate.appRemote.connectionParameters.accessToken
+        print(token ?? "")
+        let request = SpotifyLogin.FetchUser.Request(token: token ?? "")
         interactor?.fetchLoginUser(request: request)
     }
     

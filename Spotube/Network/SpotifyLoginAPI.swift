@@ -42,6 +42,8 @@ class SpotifyLoginAPI: NSObject, SpotifyLoginAPIInputProtocol {
             return
         }
         
+        print("Token: \(request.token)")
+        
         let header =  ["Accept":"application/json",
                        "Content-Type":"application/json",
                        "Authorization":"Bearer \(request.token)"]
@@ -56,6 +58,10 @@ class SpotifyLoginAPI: NSObject, SpotifyLoginAPIInputProtocol {
                     if let jsonData = response.data {
                         let jsonDecoder = JSONDecoder()
                         do {
+                            
+                            let jsonString = String(data: jsonData, encoding: String.Encoding.utf8)
+                            print(jsonString ?? "")
+                            
                             let user = try jsonDecoder.decode(User.self, from: jsonData)
                             completion(user)
                         } catch let error{

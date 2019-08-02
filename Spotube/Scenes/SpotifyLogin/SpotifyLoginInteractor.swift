@@ -22,6 +22,7 @@ class SpotifyLoginInteractor: NSObject, SotifyLoginBusinessLogic {
     var spotifyLoginWorker = SpotifyLoginWorker()
     
     func fetchLoginUser(request: SpotifyLogin.FetchUser.Request) {
+        spotifyLoginWorker.worker = self
         spotifyLoginWorker.fetchLoginSpotify(request: request)
     }
 }
@@ -33,6 +34,8 @@ extension SpotifyLoginInteractor: SpotifyLoginWorkerDelegate {
         if let userSpotify = user {
             let response = SpotifyLogin.FetchUser.Response(user: userSpotify)
             presenter?.presentFetchedUser(response: response)
+        } else {
+            presenter?.presentNilUser()
         }
     }
     
