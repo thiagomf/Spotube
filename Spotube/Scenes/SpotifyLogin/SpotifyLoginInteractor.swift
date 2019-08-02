@@ -8,22 +8,28 @@
 
 import UIKit
 
-protocol SotifyLoginBusinessLogic {
+protocol SpotifyLoginBusinessLogic: class {
+    
+    var worker: SpotifyLoginWorkerProtocol? { get set }
     
     var presenter: SpotifyLoginPresentationLogic? { get set }
     
-    func fetchLoginUser(request: SpotifyLogin.FetchUser.Request)
+    func loginSpotify()
 }
 
-class SpotifyLoginInteractor: NSObject, SotifyLoginBusinessLogic {
+protocol SpotifyLoginWorkerDelegate: class {
+    
+    func spotifyLogger(user: User?)
+}
+
+class SpotifyLoginInteractor: SpotifyLoginBusinessLogic {
+
+    var worker: SpotifyLoginWorkerProtocol?
     
     var presenter: SpotifyLoginPresentationLogic?
     
-    var spotifyLoginWorker = SpotifyLoginWorker()
-    
-    func fetchLoginUser(request: SpotifyLogin.FetchUser.Request) {
-        spotifyLoginWorker.worker = self
-        spotifyLoginWorker.fetchLoginSpotify(request: request)
+    func loginSpotify() {
+        worker?.spotifyRequestLogin()
     }
 }
 

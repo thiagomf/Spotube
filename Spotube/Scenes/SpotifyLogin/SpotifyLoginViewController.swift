@@ -10,50 +10,29 @@ import UIKit
 
 protocol SpotifyLoginDisplayLogic: class {
     
-    var interactor: SotifyLoginBusinessLogic? { get set }
+    var interactor: SpotifyLoginBusinessLogic? { get set }
+    
+    var wireFrame: SpotifyLoginWireframeProtocol? { get set }
     
     func displayFetchedUser(viewModel: SpotifyLogin.FetchUser.ViewModel?)
 }
 
 class SpotifyLoginViewController: UIViewController {
 
-    var interactor: SotifyLoginBusinessLogic?
+    var interactor: SpotifyLoginBusinessLogic?
     
-    let delegate = UIApplication.shared.delegate as! AppDelegate
+    var wireFrame: SpotifyLoginWireframeProtocol?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         print("Hello world")
-        
-        setup()
-    }
-
-    func setup() {
-        
-        let viewController = self
-        let interactor = SpotifyLoginInteractor()
-        let presenter = SpotifyLoginPresenter()
-        viewController.interactor = interactor
-        interactor.presenter = presenter
-        presenter.viewController = viewController
 
     }
     
     @IBAction func connectSpot(_ sender: Any) {
         
-        let requestedScopes: SPTScope = [.appRemoteControl, .playlistReadPrivate]
-        
-        delegate.sessionManager.initiateSession(with: requestedScopes, options: .default)
-    }
-    
-    
-    @IBAction func teste(_ sender: Any) {
-        
-        let token = delegate.appRemote.connectionParameters.accessToken
-        print(token ?? "")
-        let request = SpotifyLogin.FetchUser.Request(token: token ?? "")
-        interactor?.fetchLoginUser(request: request)
+        interactor?.loginSpotify()
     }
     
 }

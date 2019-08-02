@@ -8,22 +8,55 @@
 
 import UIKit
 
-protocol SpotifyLoginWorkerDelegate
-{
-    func spotifyLogger(user: User?)
+protocol SpotifyLoginWorkerProtocol: class {
+    
+    var remoteDataManager: SpotifyLoginAPIInputProtocol? { get set }
+    
+    var interactor: SpotifyLoginWorkerDelegate? { get set }
+    
+    func spotifyRequestLogin()
+    
+    func disconnectSpotify()
+    
+    func spotifySetApplication(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any])
 }
 
-class SpotifyLoginWorker: NSObject, SpotifyLoginOutputProtocol {
-
-    var spotifyLoginAPI: SpotifyLoginAPIInputProtocol = SpotifyLoginAPI()
-    var worker: SpotifyLoginWorkerDelegate?
+protocol SpotifyLoginOutputProtocol: class {
     
-    func fetchLoginSpotify(request: SpotifyLogin.FetchUser.Request) {
-        spotifyLoginAPI.remoteRequestHandler = self
-        spotifyLoginAPI.callAPILogin(request: request)
+    func tokenAcess(token: String)
+    
+    func fetchUserSpotify(user: User?)
+    
+}
+
+class SpotifyLoginWorker: SpotifyLoginWorkerProtocol {
+
+    var remoteDataManager: SpotifyLoginAPIInputProtocol?
+    
+    var interactor: SpotifyLoginWorkerDelegate?
+    
+    func spotifyRequestLogin() {
+        
+        remoteDataManager?.callRequestLogin()
     }
     
+    func disconnectSpotify() {
+        remoteDataManager?.disconectSpotify()
+    }
+    
+    func spotifySetApplication(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) {
+        remoteDataManager?.spotifyApplication(app: app, open: url, options: options)
+    }
+}
+
+extension SpotifyLoginWorker: SpotifyLoginOutputProtocol {
+    
+    func tokenAcess(token: String) {
+        remoteDataManager?.callAPILogin(token: token)
+    }
+
+    
     func fetchUserSpotify(user: User?) {
-        worker?.spotifyLogger(user: user)
+        interactor?.spotifyLogger(user: user)
     }
 }

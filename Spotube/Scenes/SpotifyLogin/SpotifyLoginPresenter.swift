@@ -8,14 +8,16 @@
 
 import UIKit
 
-protocol SpotifyLoginPresentationLogic {
+protocol SpotifyLoginPresentationLogic: class {
+    
+    var viewController: SpotifyLoginDisplayLogic? { get set }
     
     func presentFetchedUser(response: SpotifyLogin.FetchUser.Response)
     
     func presentNilUser()
 }
 
-class SpotifyLoginPresenter: NSObject, SpotifyLoginPresentationLogic {
+class SpotifyLoginPresenter: SpotifyLoginPresentationLogic {
 
     weak var viewController: SpotifyLoginDisplayLogic?
     
@@ -34,9 +36,8 @@ class SpotifyLoginPresenter: NSObject, SpotifyLoginPresentationLogic {
     
     private func convertUser(user: User) -> SpotifyLogin.FetchUser.ViewModel.DisplayedUser
     {
-        let userViewModel = SpotifyLogin.FetchUser.ViewModel.DisplayedUser(country: "",
+        let userViewModel = SpotifyLogin.FetchUser.ViewModel.DisplayedUser(id: user.id,
                                                                            displayName: user.displayName,
-                                                                           email: "",
                                                                            image: user.images[0].url)
         
         return userViewModel
