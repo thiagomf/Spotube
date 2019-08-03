@@ -20,7 +20,7 @@ enum SpotifyLogin
         
         struct Response
         {
-            var user: User?
+            var user: SpotifyUser?
         }
         
         struct ViewModel

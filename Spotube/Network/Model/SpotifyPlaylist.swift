@@ -9,7 +9,7 @@
 import Foundation
 
 // MARK: - Playlist
-struct Playlist: Codable {
+struct SpotifyPlaylist: Codable {
     let href: String
     let items: [Item]
     let limit: Int

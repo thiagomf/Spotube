@@ -19,6 +19,8 @@ protocol SpotifyLoginAPIInputProtocol: class {
     
     func disconectSpotify()
     
+    func reConnectSpotify()
+    
     func spotifyApplication(app: UIApplication,
                     open url: URL,
                     options: [UIApplication.OpenURLOptionsKey : Any])
@@ -61,14 +63,12 @@ class SpotifyLoginAPI: NSObject, SpotifyLoginAPIInputProtocol {
     }
     
     func fetch(token: String,
-               completion: @escaping (User?) -> Void) {
+               completion: @escaping (SpotifyUser?) -> Void) {
         
         guard let url = URL(string: "https://api.spotify.com/v1/me") else {
             completion(nil)
             return
         }
-        
-        print("Token: \(token)")
         
         let header =  ["Accept":"application/json",
                        "Content-Type":"application/json",
@@ -88,7 +88,7 @@ class SpotifyLoginAPI: NSObject, SpotifyLoginAPIInputProtocol {
                             let jsonString = String(data: jsonData, encoding: String.Encoding.utf8)
                             print(jsonString ?? "")
                             
-                            let user = try jsonDecoder.decode(User.self, from: jsonData)
+                            let user = try jsonDecoder.decode(SpotifyUser.self, from: jsonData)
                             completion(user)
                         } catch let error{
                             print("Erro: \(error.localizedDescription)")
@@ -119,6 +119,10 @@ class SpotifyLoginAPI: NSObject, SpotifyLoginAPIInputProtocol {
     
     func spotifyApplication(app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) {
         self.sessionManager.application(app, open: url, options: options)
+    }
+    
+    func reConnectSpotify() {
+        self.appRemote.connect()
     }
 
 }

@@ -34,7 +34,7 @@ class SpotifyLoginPresenter: SpotifyLoginPresentationLogic {
         viewController?.displayFetchedUser(viewModel: nil)
     }
     
-    private func convertUser(user: User) -> SpotifyLogin.FetchUser.ViewModel.DisplayedUser
+    private func convertUser(user: SpotifyUser) -> SpotifyLogin.FetchUser.ViewModel.DisplayedUser
     {
         let userViewModel = SpotifyLogin.FetchUser.ViewModel.DisplayedUser(id: user.id,
                                                                            displayName: user.displayName,

@@ -19,14 +19,15 @@ protocol SpotifyLoginWorkerProtocol: class {
     func disconnectSpotify()
     
     func spotifySetApplication(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any])
+    
+    func connectSpotify()
 }
 
 protocol SpotifyLoginOutputProtocol: class {
     
     func tokenAcess(token: String)
     
-    func fetchUserSpotify(user: User?)
-    
+    func fetchUserSpotify(user: SpotifyUser?)
 }
 
 class SpotifyLoginWorker: SpotifyLoginWorkerProtocol {
@@ -36,7 +37,6 @@ class SpotifyLoginWorker: SpotifyLoginWorkerProtocol {
     var interactor: SpotifyLoginWorkerDelegate?
     
     func spotifyRequestLogin() {
-        
         remoteDataManager?.callRequestLogin()
     }
     
@@ -47,6 +47,10 @@ class SpotifyLoginWorker: SpotifyLoginWorkerProtocol {
     func spotifySetApplication(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) {
         remoteDataManager?.spotifyApplication(app: app, open: url, options: options)
     }
+    
+    func connectSpotify() {
+        remoteDataManager?.reConnectSpotify()
+    }
 }
 
 extension SpotifyLoginWorker: SpotifyLoginOutputProtocol {
@@ -56,7 +60,7 @@ extension SpotifyLoginWorker: SpotifyLoginOutputProtocol {
     }
 
     
-    func fetchUserSpotify(user: User?) {
+    func fetchUserSpotify(user: SpotifyUser?) {
         interactor?.spotifyLogger(user: user)
     }
 }

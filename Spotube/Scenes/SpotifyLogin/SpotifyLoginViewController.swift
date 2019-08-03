@@ -40,7 +40,11 @@ class SpotifyLoginViewController: UIViewController {
 extension SpotifyLoginViewController: SpotifyLoginDisplayLogic {
     
     func displayFetchedUser(viewModel: SpotifyLogin.FetchUser.ViewModel?) {
-        print("Name: \(String(describing: viewModel?.displayedUser.displayName))")
+        
+        if let user = viewModel {
+            print("Name: \(String(describing: user.displayedUser.displayName))")
+        }
+        
     }
 }
 
