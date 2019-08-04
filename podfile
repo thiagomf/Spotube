@@ -3,6 +3,7 @@ target 'Spotube' do
   
     pod 'Alamofire'
     pod 'JGProgressHUD'
+    pod 'Kingfisher'
     
     target 'SpotubeTests' do
       inherit! :search_paths

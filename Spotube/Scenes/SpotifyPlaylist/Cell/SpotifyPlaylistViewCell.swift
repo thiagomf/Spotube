@@ -10,7 +10,9 @@ import UIKit
 
 class SpotifyPlaylistViewCell: UITableViewCell {
 
+    @IBOutlet weak var albumImg: UIImageView!
     
+    @IBOutlet weak var albumLb: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

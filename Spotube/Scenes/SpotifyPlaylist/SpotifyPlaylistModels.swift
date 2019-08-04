@@ -29,10 +29,12 @@ enum Playlist
         {
             struct DisplayedPlayList
             {
-                var itens: [Item]
+                var name: String
+                var image: String
+                var id: String
             }
             
-            var displayedPlaylist: DisplayedPlayList
+            var displayedPlaylist: [DisplayedPlayList]
         }
     }
 }
