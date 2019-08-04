@@ -8,6 +8,24 @@
 
 import UIKit
 
-class SpotifyPlaylistRouter: NSObject {
+//MARK: Wireframe -
+protocol SpotifyPlaylistWireframeProtocol: class {
+    
+    static func createPlaylistScreenModule() -> SpotifyPlaylistViewController
+    
+    // PRESENTER -> WIREFRAME
+    func routerGoPLaylistMusic(item: Item)
+}
+
+class SpotifyPlaylistRouter: SpotifyPlaylistWireframeProtocol {
+    
+    static func createPlaylistScreenModule() -> SpotifyPlaylistViewController {
+        return UIViewController() as! SpotifyPlaylistViewController
+    }
+    
+    func routerGoPLaylistMusic(item: Item) {
+        
+    }
+    
 
 }

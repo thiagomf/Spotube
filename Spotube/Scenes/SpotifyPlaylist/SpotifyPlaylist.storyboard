@@ -49,6 +49,9 @@
                         <viewLayoutGuide key="safeArea" id="fTA-W8-0uH"/>
                     </view>
                     <navigationItem key="navigationItem" id="S0R-8L-gFb"/>
+                    <connections>
+                        <outlet property="playListTbv" destination="9HQ-j6-Jhd" id="klc-LC-Gv7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nGh-SC-jZC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

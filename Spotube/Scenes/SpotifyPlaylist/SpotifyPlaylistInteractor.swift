@@ -8,6 +8,37 @@
 
 import UIKit
 
-class SpotifyPlaylistInteractor: NSObject {
+protocol SpotifyPlaylistBusinessLogic: class {
+    
+    var worker: SpotifyPlaylistWorkerProtocol? { get set }
+    
+    var presenter: SpotifyPlaylistPresentationLogic? { get set }
+    
+    func playListSpotify(request: Playlist.FetchPlayList.Request)
+}
 
+protocol SpotifyPlaylistWorkerDelegate: class {
+    
+    func spotifyPlayList(itens: SpotifyPlaylist?)
+}
+
+class SpotifyPlaylistInteractor: SpotifyPlaylistBusinessLogic {
+    
+    var worker: SpotifyPlaylistWorkerProtocol?
+    
+    var presenter: SpotifyPlaylistPresentationLogic?
+    
+    func playListSpotify(request: Playlist.FetchPlayList.Request) {
+        worker?.spotifyRequestList(request: request)
+    }
+
+}
+
+extension SpotifyPlaylistInteractor: SpotifyPlaylistWorkerDelegate {
+    
+    func spotifyPlayList(itens: SpotifyPlaylist?) {
+        let reponse = Playlist.FetchPlayList.Response.init(playlist: itens)
+        presenter?.presentFetchedPlaylist(response: reponse)
+    }
+    
 }

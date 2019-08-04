@@ -8,23 +8,42 @@
 
 import UIKit
 
+protocol SpotifyPlaylistDisplayLogic: class {
+    
+    var interactor: SpotifyPlaylistBusinessLogic? { get set }
+    
+    var wireFrame: SpotifyPlaylistWireframeProtocol? { get set }
+    
+    func displayFetchedPlaylist(viewModel: Playlist.FetchPlayList.ViewModel?)
+}
+
 class SpotifyPlaylistViewController: UIViewController {
 
+    var interactor: SpotifyPlaylistBusinessLogic?
+    
+    var wireFrame: SpotifyPlaylistWireframeProtocol?
+    
+    @IBOutlet weak var playListTbv: UITableView!
+    
+    var navTitle: String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func setupNavigation() {
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+        self.navigationItem.largeTitleDisplayMode = .automatic
+        self.navigationController?.title = "Olá \(navTitle)"
     }
-    */
+}
 
+extension SpotifyPlaylistViewController: SpotifyPlaylistDisplayLogic {
+   
+    func displayFetchedPlaylist(viewModel: Playlist.FetchPlayList.ViewModel?) {
+        
+    }
+    
 }
