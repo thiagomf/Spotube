@@ -43,6 +43,7 @@ extension SpotifyLoginViewController: SpotifyLoginDisplayLogic {
         
         if let user = viewModel {
             print("Name: \(String(describing: user.displayedUser.displayName))")
+            wireFrame?.routerGoUserPLaylist(user: user.displayedUser)
         }
         
     }

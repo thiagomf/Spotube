@@ -23,8 +23,8 @@ class SpotifyLoginPresenter: SpotifyLoginPresentationLogic {
     
     func presentFetchedUser(response: SpotifyLogin.FetchUser.Response) {
         
-        if let user = response.user {
-            let displayedUser = convertUser(user: user)
+        if let user = response.user, let token = response.token {
+            let displayedUser = convertUser(user: user, token: token)
             let viewModel = SpotifyLogin.FetchUser.ViewModel(displayedUser: displayedUser)
             viewController?.displayFetchedUser(viewModel: viewModel)
         }
@@ -34,11 +34,12 @@ class SpotifyLoginPresenter: SpotifyLoginPresentationLogic {
         viewController?.displayFetchedUser(viewModel: nil)
     }
     
-    private func convertUser(user: SpotifyUser) -> SpotifyLogin.FetchUser.ViewModel.DisplayedUser
+    private func convertUser(user: SpotifyUser, token: String) -> SpotifyLogin.FetchUser.ViewModel.DisplayedUser
     {
         let userViewModel = SpotifyLogin.FetchUser.ViewModel.DisplayedUser(id: user.id,
                                                                            displayName: user.displayName,
-                                                                           image: user.images[0].url)
+                                                                           image: user.images[0].url,
+                                                                           token: token)
         
         return userViewModel
     }

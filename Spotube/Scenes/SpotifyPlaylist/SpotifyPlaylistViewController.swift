@@ -8,6 +8,7 @@
 
 import UIKit
 import Kingfisher
+import JGProgressHUD
 
 protocol SpotifyPlaylistDisplayLogic: class {
     
@@ -20,7 +21,7 @@ protocol SpotifyPlaylistDisplayLogic: class {
     func displayFetchedPlaylist(viewModel: Playlist.FetchPlayList.ViewModel)
 }
 
-class SpotifyPlaylistViewController: UIViewController {
+class SpotifyPlaylistViewController: UIViewController, UITableViewDelegate {
 
     var interactor: SpotifyPlaylistBusinessLogic?
     
@@ -32,29 +33,48 @@ class SpotifyPlaylistViewController: UIViewController {
     
     @IBOutlet weak var playListTbv: UITableView!
     
-    var navTitle: String = ""
-    
     var itens: [Playlist.FetchPlayList.ViewModel.DisplayedPlayList] = []
     
-    var token: String = ""
+    var user: SpotifyLogin.FetchUser.ViewModel.DisplayedUser?
     
-    var userId: String = ""
+    let hud = JGProgressHUD(style: .light)
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        confTb()
+        setupNavigation()
+        confHUD()
         fetchPlayList()
-       
     }
     
     func setupNavigation() {
         self.navigationController?.navigationBar.prefersLargeTitles = true
-        self.navigationController?.title = "Olá \(navTitle)"
+        if let nome = user?.displayName {
+             self.title = "Olá \(nome)"
+        }
+        
         self.navigationController?.navigationItem.largeTitleDisplayMode = .automatic
     }
     
+    func confTb() {
+        
+        let customCell = UINib(nibName: "SpotifyPlaylistViewCell", bundle: nil)
+        playListTbv.register(customCell, forCellReuseIdentifier: "playlistCell")
+        playListTbv.rowHeight = UITableView.automaticDimension
+        playListTbv.estimatedRowHeight = 50
+    }
+    
+    func confHUD() {
+        hud.textLabel.text = "Carregando"
+    }
+    
     func fetchPlayList(){
-        let request = Playlist.FetchPlayList.Request(token: token, userId: userId)
-        interactor?.playListSpotify(request: request)
+        hud.show(in: self.view)
+        if let id = user?.id, let token = user?.token {
+            let request = Playlist.FetchPlayList.Request(token: token, userId: id)
+            interactor?.playListSpotify(request: request)
+        }
     }
 }
 
@@ -63,6 +83,7 @@ extension SpotifyPlaylistViewController: SpotifyPlaylistDisplayLogic {
     func displayFetchedPlaylist(viewModel: Playlist.FetchPlayList.ViewModel) {
         itens = viewModel.displayedPlaylist
         playListTbv.reloadData()
+        hud.dismiss()
     }
 }
 
@@ -74,14 +95,16 @@ extension SpotifyPlaylistViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let displayedList = itens[indexPath.row]
-        var cell = tableView.dequeueReusableCell(withIdentifier: "playlistCell") as? SpotifyPlaylistViewCell
-        if cell == nil {
-            cell = UITableViewCell(style: .value1, reuseIdentifier: "playlistCell") as? SpotifyPlaylistViewCell
-        }
+        let cell = tableView.dequeueReusableCell(withIdentifier: "playlistCell") as! SpotifyPlaylistViewCell
         let url = URL.init(string: displayedList.image)
-        cell?.albumImg.kf.setImage(with: url)
-        cell?.albumLb.text = displayedList.name
-        return cell!
+        cell.albumImg?.kf.setImage(with: url)
+        cell.albumLb?.text = displayedList.name
+        return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let displayedList = itens[indexPath.row]
+        print("You tapped cell number \(displayedList.name).")
+    }
 }

@@ -21,6 +21,7 @@ enum SpotifyLogin
         struct Response
         {
             var user: SpotifyUser?
+            var token: String?
         }
         
         struct ViewModel
@@ -30,6 +31,7 @@ enum SpotifyLogin
                 var id: String
                 var displayName: String
                 var image: String
+                var token: String
             }
             
             var displayedUser: DisplayedUser

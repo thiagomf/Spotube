@@ -14,7 +14,7 @@ protocol SpotifyLoginWireframeProtocol: class {
     static func createLoginScreenModule() -> SpotifyLoginViewController
     
     // PRESENTER -> WIREFRAME
-    func routerGoUserPLaylist(user: SpotifyUser)
+    func routerGoUserPLaylist(user: SpotifyLogin.FetchUser.ViewModel.DisplayedUser?)
 }
 
 class SpotifyLoginRouter: SpotifyLoginWireframeProtocol {
@@ -44,8 +44,11 @@ class SpotifyLoginRouter: SpotifyLoginWireframeProtocol {
         return UIViewController() as! SpotifyLoginViewController
     }
     
-    func routerGoUserPLaylist(user: SpotifyUser) {
+    func routerGoUserPLaylist(user: SpotifyLogin.FetchUser.ViewModel.DisplayedUser?) {
         
+        let window = UIApplication.shared.delegate?.window
+        window??.rootViewController = SpotifyPlaylistRouter.createPlaylistScreenModule(user: user)
+        window??.makeKeyAndVisible()
     }
     
 }

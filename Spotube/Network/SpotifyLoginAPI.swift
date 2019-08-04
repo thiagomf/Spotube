@@ -57,7 +57,7 @@ class SpotifyLoginAPI: NSObject, SpotifyLoginAPIInputProtocol {
     func callAPILogin(token: String) {
         self.fetch(token: token, completion: { user in
             
-            self.remoteRequestHandler?.fetchUserSpotify(user: user)
+            self.remoteRequestHandler?.fetchUserSpotify(user: user, token: token)
            
         })
     }

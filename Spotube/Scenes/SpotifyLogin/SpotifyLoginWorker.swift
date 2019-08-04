@@ -27,7 +27,7 @@ protocol SpotifyLoginOutputProtocol: class {
     
     func tokenAcess(token: String)
     
-    func fetchUserSpotify(user: SpotifyUser?)
+    func fetchUserSpotify(user: SpotifyUser?, token: String)
 }
 
 class SpotifyLoginWorker: SpotifyLoginWorkerProtocol {
@@ -60,7 +60,7 @@ extension SpotifyLoginWorker: SpotifyLoginOutputProtocol {
     }
 
     
-    func fetchUserSpotify(user: SpotifyUser?) {
-        interactor?.spotifyLogger(user: user)
+    func fetchUserSpotify(user: SpotifyUser?, token: String) {
+        interactor?.spotifyLogger(user: user, token: token)
     }
 }

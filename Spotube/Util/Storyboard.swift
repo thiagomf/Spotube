@@ -12,6 +12,6 @@ struct Storyboard {
     
     static let spotifyLoginStoryboard = UIStoryboard(name: "SpotifyLogin", bundle: Bundle.main)
     
-    static let spotifyPlaylistStoryboard = UIStoryboard(name: "PlaylistNavigation", bundle: Bundle.main)
+    static let spotifyPlaylistStoryboard = UIStoryboard(name: "SpotifyPlaylist", bundle: Bundle.main)
 
 }

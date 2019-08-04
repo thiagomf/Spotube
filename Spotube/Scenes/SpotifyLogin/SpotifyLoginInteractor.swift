@@ -19,7 +19,7 @@ protocol SpotifyLoginBusinessLogic: class {
 
 protocol SpotifyLoginWorkerDelegate: class {
     
-    func spotifyLogger(user: SpotifyUser?)
+    func spotifyLogger(user: SpotifyUser?, token: String)
 }
 
 class SpotifyLoginInteractor: SpotifyLoginBusinessLogic {
@@ -35,10 +35,10 @@ class SpotifyLoginInteractor: SpotifyLoginBusinessLogic {
 
 extension SpotifyLoginInteractor: SpotifyLoginWorkerDelegate {
     
-    func spotifyLogger(user: SpotifyUser?) {
+    func spotifyLogger(user: SpotifyUser?, token: String) {
         
         if let userSpotify = user {
-            let response = SpotifyLogin.FetchUser.Response(user: userSpotify)
+            let response = SpotifyLogin.FetchUser.Response(user: userSpotify, token: token)
             presenter?.presentFetchedUser(response: response)
         } else {
             presenter?.presentNilUser()
