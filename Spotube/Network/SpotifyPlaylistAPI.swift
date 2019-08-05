@@ -36,6 +36,7 @@ class SpotifyPlaylistAPI: NSObject, SpotifyPlaylistAPIInputProtocol {
                completion: @escaping (SpotifyPlaylist?) -> Void) {
         
         if let next = pagination.pagNext, let url = URL(string: next) {
+            
             let header =  ["Accept":"application/json",
                            "Content-Type":"application/json",
                            "Authorization":"Bearer \(request.token)"]
