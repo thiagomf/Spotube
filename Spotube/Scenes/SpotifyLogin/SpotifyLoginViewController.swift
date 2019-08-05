@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import JGProgressHUD
 
 protocol SpotifyLoginDisplayLogic: class {
     
@@ -23,15 +24,15 @@ class SpotifyLoginViewController: UIViewController {
     
     var wireFrame: SpotifyLoginWireframeProtocol?
     
+    let hud = JGProgressHUD(style: .light)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        print("Hello world")
-
+        hud.textLabel.text = "Carregando"
     }
     
     @IBAction func connectSpot(_ sender: Any) {
-        
+        hud.show(in: self.view)
         interactor?.loginSpotify()
     }
     
@@ -40,6 +41,8 @@ class SpotifyLoginViewController: UIViewController {
 extension SpotifyLoginViewController: SpotifyLoginDisplayLogic {
     
     func displayFetchedUser(viewModel: SpotifyLogin.FetchUser.ViewModel?) {
+        
+        hud.dismiss()
         
         if let user = viewModel {
             print("Name: \(String(describing: user.displayedUser.displayName))")

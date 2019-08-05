@@ -31,8 +31,9 @@ class SpotifyPlaylistAPI: NSObject, SpotifyPlaylistAPIInputProtocol {
     
     func fetch(request: Playlist.FetchPlayList.Request,
                completion: @escaping (SpotifyPlaylist?) -> Void) {
-        
-        guard let url = URL(string: "https://api.spotify.com/v1/users/\(request.userId)/playlists?offset=5") else {
+        //https://api.spotify.com/v1/me/playlists
+        //https://api.spotify.com/v1/users/\(request.userId)/playlists?offset=0
+        guard let url = URL(string: "https://api.spotify.com/v1/me/playlists") else {
             completion(nil)
             return
         }
