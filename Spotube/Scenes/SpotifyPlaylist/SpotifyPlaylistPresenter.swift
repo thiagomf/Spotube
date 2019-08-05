@@ -19,11 +19,13 @@ class SpotifyPlaylistPresenter: SpotifyPlaylistPresentationLogic {
     
     weak var viewController: SpotifyPlaylistDisplayLogic?
     
+    var itens: [Item] = []
+    
     func presentFetchedPlaylist(response: Playlist.FetchPlayList.Response) {
         
         if let playList = response.playlist?.items {
-            
-            let displayedItens = convertItens(itens: playList)
+            itens.append(contentsOf: playList)
+            let displayedItens = convertItens(itens: itens)
             let viewModel = Playlist.FetchPlayList.ViewModel(displayedPlaylist: displayedItens)
             viewController?.displayFetchedPlaylist(viewModel: viewModel)
         }
@@ -32,7 +34,7 @@ class SpotifyPlaylistPresenter: SpotifyPlaylistPresentationLogic {
     
     private func convertItens(itens: [Item]) -> [Playlist.FetchPlayList.ViewModel.DisplayedPlayList]
     {
-        return itens.map { Playlist.FetchPlayList.ViewModel.DisplayedPlayList(name: $0.name, image: $0.images[0].url, id: $0.id) }
+        return itens.map { Playlist.FetchPlayList.ViewModel.DisplayedPlayList(name: $0.name, image: $0.images[0].url, id: $0.id, owner: $0.owner.displayName) }
     }
     
 }

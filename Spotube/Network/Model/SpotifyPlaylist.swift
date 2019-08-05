@@ -13,7 +13,7 @@ struct SpotifyPlaylist: Codable {
     let href: String
     let items: [Item]
     let limit: Int
-    let next: String
+    let next: String?
     let offset: Int
     let total: Int
 }

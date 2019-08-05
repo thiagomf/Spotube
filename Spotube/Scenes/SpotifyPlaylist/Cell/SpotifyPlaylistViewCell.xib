@@ -20,33 +20,45 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Qgh-Jc-OpD">
-                        <rect key="frame" x="10" y="10" width="80" height="80"/>
+                        <rect key="frame" x="10" y="5" width="80" height="80"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="80" id="BzP-Yz-4Z7"/>
                             <constraint firstAttribute="height" constant="80" id="zdH-u3-wFd"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ENl-qr-13x">
-                        <rect key="frame" x="110" y="39.5" width="276" height="20.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="xVo-Hm-ZfK">
+                        <rect key="frame" x="95" y="26" width="291" height="37.5"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ENl-qr-13x">
+                                <rect key="frame" x="0.0" y="0.0" width="291" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AVt-F6-f3k">
+                                <rect key="frame" x="0.0" y="20.5" width="291" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                    </stackView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="Qgh-Jc-OpD" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="72N-RV-9O4"/>
-                    <constraint firstItem="ENl-qr-13x" firstAttribute="centerY" secondItem="Qgh-Jc-OpD" secondAttribute="centerY" id="961-iv-AJ5"/>
-                    <constraint firstAttribute="bottom" secondItem="Qgh-Jc-OpD" secondAttribute="bottom" constant="10" id="FUS-zB-dZ6"/>
-                    <constraint firstAttribute="trailing" secondItem="ENl-qr-13x" secondAttribute="trailing" constant="10" id="YaK-s0-RE3"/>
+                    <constraint firstAttribute="bottom" secondItem="Qgh-Jc-OpD" secondAttribute="bottom" constant="5" id="FUS-zB-dZ6"/>
+                    <constraint firstItem="xVo-Hm-ZfK" firstAttribute="centerY" secondItem="Qgh-Jc-OpD" secondAttribute="centerY" id="JcL-rv-mpE"/>
+                    <constraint firstAttribute="trailing" secondItem="xVo-Hm-ZfK" secondAttribute="trailing" constant="10" id="Yad-6N-24f"/>
+                    <constraint firstItem="xVo-Hm-ZfK" firstAttribute="leading" secondItem="Qgh-Jc-OpD" secondAttribute="trailing" constant="5" id="ayl-dj-t6d"/>
                     <constraint firstItem="Qgh-Jc-OpD" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="mJX-bz-XDr"/>
-                    <constraint firstItem="Qgh-Jc-OpD" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="wx9-Ed-WCG"/>
-                    <constraint firstItem="ENl-qr-13x" firstAttribute="leading" secondItem="Qgh-Jc-OpD" secondAttribute="trailing" constant="20" id="xf0-dP-Mz0"/>
+                    <constraint firstItem="Qgh-Jc-OpD" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="wx9-Ed-WCG"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="albumImg" destination="Qgh-Jc-OpD" id="bxw-7E-aSz"/>
                 <outlet property="albumLb" destination="ENl-qr-13x" id="X7s-E9-D2Z"/>
+                <outlet property="ownerLb" destination="AVt-F6-f3k" id="MG4-lh-acM"/>
             </connections>
             <point key="canvasLocation" x="192.75362318840581" y="179.79910714285714"/>
         </tableViewCell>

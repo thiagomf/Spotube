@@ -21,7 +21,7 @@ protocol SpotifyPlaylistDisplayLogic: class {
     func displayFetchedPlaylist(viewModel: Playlist.FetchPlayList.ViewModel)
 }
 
-class SpotifyPlaylistViewController: UIViewController, UITableViewDelegate {
+class SpotifyPlaylistViewController: UIViewController {
 
     var interactor: SpotifyPlaylistBusinessLogic?
     
@@ -99,12 +99,24 @@ extension SpotifyPlaylistViewController: UITableViewDataSource {
         let url = URL.init(string: displayedList.image)
         cell.albumImg?.kf.setImage(with: url)
         cell.albumLb?.text = displayedList.name
+        cell.ownerLb?.text = "criador: \(displayedList.owner)"
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let displayedList = itens[indexPath.row]
-        print("You tapped cell number \(displayedList.name).")
+        print("You tapped cell number\(indexPath.row) : \(displayedList.name).")
+    }
+}
+
+extension SpotifyPlaylistViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.row == itens.count - 2 {
+            if let id = user?.id, let token = user?.token {
+                let request = Playlist.FetchPlayList.Request(token: token, userId: id)
+                interactor?.playListSpotify(request: request)
+            }
+        }
     }
 }

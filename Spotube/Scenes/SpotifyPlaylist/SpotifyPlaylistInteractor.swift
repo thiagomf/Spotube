@@ -28,15 +28,23 @@ class SpotifyPlaylistInteractor: SpotifyPlaylistBusinessLogic {
     
     var presenter: SpotifyPlaylistPresentationLogic?
     
+    let pagination = PaginationWorker()
+    
+    var faltam: Int = 0
+    
     func playListSpotify(request: Playlist.FetchPlayList.Request) {
-        worker?.spotifyRequestList(request: request)
-    }
 
+        worker?.spotifyRequestList(request: request, pagination: pagination)
+        
+    }
 }
 
 extension SpotifyPlaylistInteractor: SpotifyPlaylistWorkerDelegate {
     
     func spotifyPlayList(itens: SpotifyPlaylist?) {
+        
+        pagination.pagNext = itens?.next
+        
         let reponse = Playlist.FetchPlayList.Response.init(playlist: itens)
         presenter?.presentFetchedPlaylist(response: reponse)
     }

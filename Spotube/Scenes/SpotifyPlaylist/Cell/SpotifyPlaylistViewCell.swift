@@ -14,6 +14,8 @@ class SpotifyPlaylistViewCell: UITableViewCell {
     
     @IBOutlet weak var albumLb: UILabel!
     
+    @IBOutlet weak var ownerLb: UILabel!
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String!) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
     }

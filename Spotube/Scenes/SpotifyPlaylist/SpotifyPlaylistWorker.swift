@@ -14,7 +14,7 @@ protocol SpotifyPlaylistWorkerProtocol: class {
     
     var interactor: SpotifyPlaylistWorkerDelegate? { get set }
     
-    func spotifyRequestList(request: Playlist.FetchPlayList.Request)
+    func spotifyRequestList(request: Playlist.FetchPlayList.Request, pagination: PaginationWorker)
     
 }
 
@@ -30,14 +30,15 @@ class SpotifyPlaylistWorker: SpotifyPlaylistWorkerProtocol {
     
     var interactor: SpotifyPlaylistWorkerDelegate?
     
-    func spotifyRequestList(request: Playlist.FetchPlayList.Request) {
-        remoteDataManager?.callAPIPlaylist(request: request)
+    func spotifyRequestList(request: Playlist.FetchPlayList.Request, pagination: PaginationWorker) {
+        remoteDataManager?.callAPIPlaylist(request: request, pagination: pagination)
     }
 }
 
 extension SpotifyPlaylistWorker: SpotifyPlaylistOutputProtocol {
     
     func fetchPlayListSpotify(itens: SpotifyPlaylist?) {
+        
         interactor?.spotifyPlayList(itens: itens)
     }
 }

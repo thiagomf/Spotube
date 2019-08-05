@@ -13,62 +13,64 @@ protocol SpotifyPlaylistAPIInputProtocol: class {
     
     var remoteRequestHandler: SpotifyPlaylistOutputProtocol? { get set }
     
-    func callAPIPlaylist(request: Playlist.FetchPlayList.Request)
+    func callAPIPlaylist(request: Playlist.FetchPlayList.Request, pagination: PaginationWorker)
 }
 
 class SpotifyPlaylistAPI: NSObject, SpotifyPlaylistAPIInputProtocol {
     
     var remoteRequestHandler: SpotifyPlaylistOutputProtocol?
     
-    func callAPIPlaylist(request: Playlist.FetchPlayList.Request) {
+    func callAPIPlaylist(request: Playlist.FetchPlayList.Request, pagination: PaginationWorker) {
         
-        self.fetch(request: request, completion: { playlist in
+        self.fetch(request: request,
+                   pagination: pagination,
+                    completion: { playlist in
             
-            self.remoteRequestHandler?.fetchPlayListSpotify(itens: playlist)
+                        self.remoteRequestHandler?.fetchPlayListSpotify(itens: playlist)
             
         })
     }
     
     func fetch(request: Playlist.FetchPlayList.Request,
+               pagination: PaginationWorker,
                completion: @escaping (SpotifyPlaylist?) -> Void) {
-        //https://api.spotify.com/v1/me/playlists
-        //https://api.spotify.com/v1/users/\(request.userId)/playlists?offset=0
-        guard let url = URL(string: "https://api.spotify.com/v1/me/playlists") else {
+        
+        if let next = pagination.pagNext, let url = URL(string: next) {
+            let header =  ["Accept":"application/json",
+                           "Content-Type":"application/json",
+                           "Authorization":"Bearer \(request.token)"]
+            
+            Alamofire.request(url,
+                              method: .get,
+                              headers: header).validate()
+                .responseJSON { response in
+                    
+                    switch response.result {
+                    case .success:
+                        if let jsonData = response.data {
+                            let jsonDecoder = JSONDecoder()
+                            do {
+                                
+                                let jsonString = String(data: jsonData, encoding: String.Encoding.utf8)
+                                print(jsonString ?? "")
+                                
+                                let playlist = try jsonDecoder.decode(SpotifyPlaylist.self, from: jsonData)
+                                completion(playlist)
+                            } catch let error{
+                                print("Erro: \(error.localizedDescription)")
+                                completion(nil)
+                                return
+                            }
+                        }
+                    case .failure(let error):
+                        print("Erro: \(error.localizedDescription)")
+                        completion(nil)
+                        return
+                    }
+            }
+        } else {
             completion(nil)
             return
-        }
-        
-        let header =  ["Accept":"application/json",
-                       "Content-Type":"application/json",
-                       "Authorization":"Bearer \(request.token)"]
-        
-        Alamofire.request(url,
-                          method: .get,
-                          headers: header).validate()
-            .responseJSON { response in
-                
-                switch response.result {
-                case .success:
-                    if let jsonData = response.data {
-                        let jsonDecoder = JSONDecoder()
-                        do {
-                            
-                            let jsonString = String(data: jsonData, encoding: String.Encoding.utf8)
-                            print(jsonString ?? "")
-                            
-                            let playlist = try jsonDecoder.decode(SpotifyPlaylist.self, from: jsonData)
-                            completion(playlist)
-                        } catch let error{
-                            print("Erro: \(error.localizedDescription)")
-                            completion(nil)
-                            return
-                        }
-                    }
-                case .failure(let error):
-                    print("Erro: \(error.localizedDescription)")
-                    completion(nil)
-                    return
-                }
         }
     }
 
