@@ -22,7 +22,7 @@ protocol SpotifyPlaylistBusinessLogic: class {
     
     func showGreeting()
     
-    func playListSpotify(request: Playlist.FetchPlayList.Request)
+    func playListSpotify()
     
 }
 
@@ -47,10 +47,9 @@ class SpotifyPlaylistInteractor: SpotifyPlaylistBusinessLogic {
     
     var faltam: Int = 0
     
-    func playListSpotify(request: Playlist.FetchPlayList.Request) {
-
+    func playListSpotify() {
+        let request = Playlist.FetchPlayList.Request(token: tokenId, userId: userId)
         worker?.spotifyRequestList(request: request, pagination: pagination)
-        
     }
     
     func showGreeting() {
@@ -66,7 +65,7 @@ extension SpotifyPlaylistInteractor: SpotifyPlaylistWorkerDelegate {
         
         pagination.pagNext = itens?.next
         
-        let reponse = Playlist.FetchPlayList.Response.init(playlist: itens)
+        let reponse = Playlist.FetchPlayList.Response(playlist: itens)
         presenter?.presentFetchedPlaylist(response: reponse)
     }
     

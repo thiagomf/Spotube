@@ -67,12 +67,9 @@ class SpotifyPlaylistViewController: UIViewController {
     }
     
     func fetchPlayList(){
-        hud.show(in: self.view)
         
-        if let token = interactor?.tokenId, let user = interactor?.userId {
-            let request = Playlist.FetchPlayList.Request(token: token, userId: user)
-            interactor?.playListSpotify(request: request)
-        }
+        hud.show(in: self.view)
+        interactor?.playListSpotify()
     }
 }
 
@@ -81,7 +78,6 @@ extension SpotifyPlaylistViewController: SpotifyPlaylistDisplayLogic {
         self.title = viewModel.greeting
     }
     
-   
     func displayFetchedPlaylist(viewModel: Playlist.FetchPlayList.ViewModel) {
         itens = viewModel.displayedPlaylist
         playListTbv.reloadData()
@@ -110,7 +106,7 @@ extension SpotifyPlaylistViewController: UITableViewDataSource {
         let displayedList = itens[indexPath.row]
         
         if let token = interactor?.tokenId {
-            wireFrame?.routerGoPLaylistMusic(item: displayedList, token: token)
+            wireFrame?.routerGoPLaylistMusic(playList: displayedList.id, token: token)
         }
         
         print("You tapped cell number\(indexPath.row) : \(displayedList.name).")
@@ -120,10 +116,7 @@ extension SpotifyPlaylistViewController: UITableViewDataSource {
 extension SpotifyPlaylistViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if indexPath.row == itens.count - 2 {
-            if let token = interactor?.tokenId, let user = interactor?.userId {
-                let request = Playlist.FetchPlayList.Request(token: token, userId: user)
-                interactor?.playListSpotify(request: request)
-            }
+            interactor?.playListSpotify()
         }
     }
 }

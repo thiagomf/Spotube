@@ -14,7 +14,7 @@ protocol SpotifyPlaylistWireframeProtocol: class {
     static func createPlaylistScreenModule(user: Login.FetchUser.ViewModel.DisplayedUser) -> UINavigationController
     
     // PRESENTER -> WIREFRAME
-    func routerGoPLaylistMusic(item: Playlist.FetchPlayList.ViewModel.DisplayedPlayList,
+    func routerGoPLaylistMusic(playList: String,
                                token: String)
 }
 
@@ -48,11 +48,11 @@ class SpotifyPlaylistRouter: SpotifyPlaylistWireframeProtocol {
         
     }
     
-    func routerGoPLaylistMusic(item: Playlist.FetchPlayList.ViewModel.DisplayedPlayList,
+    func routerGoPLaylistMusic(playList: String,
                                token: String) {
         
         let window = UIApplication.shared.delegate?.window
-        window??.rootViewController = SpotifyTracklistRouter.createTracklistScreenModule(token: token, playList: item)
+        window??.rootViewController = SpotifyTracklistRouter.createTracklistScreenModule(token: token, playList: playList)
         window??.makeKeyAndVisible()
     }
     

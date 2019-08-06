@@ -11,7 +11,7 @@ import UIKit
 //MARK: Wireframe -
 protocol SpotifyTracklistWireframeProtocol: class {
     
-    static func createTracklistScreenModule(token: String, playList: Playlist.FetchPlayList.ViewModel.DisplayedPlayList) -> UINavigationController
+    static func createTracklistScreenModule(token: String, playList: String) -> UINavigationController
     
     // PRESENTER -> WIREFRAME
     func routerGotracklistMusic(item: Item)
@@ -21,7 +21,7 @@ protocol SpotifyTracklistWireframeProtocol: class {
 class SpotifyTracklistRouter: SpotifyTracklistWireframeProtocol {
 
     static func createTracklistScreenModule(token: String,
-                                            playList: Playlist.FetchPlayList.ViewModel.DisplayedPlayList) -> UINavigationController {
+                                            playList: String) -> UINavigationController {
         
         let navController = Storyboard.spotifyTracklistStoryboard.instantiateViewController(withIdentifier: "SpotifyTracklistViewController") as! UINavigationController
         if let view = navController.children.first as? SpotifyTracklistViewController {

@@ -14,7 +14,7 @@ protocol SpotifyTracklistWorkerProtocol: class {
     
     var interactor: SpotifyTracklistWorkerDelegate? { get set }
     
-    func spotifyRequestList(request: Tracklist.FetchTrackList.Request, pagination: PaginationWorker)
+    func spotifyRequestList(request: Tracklist.FetchTrackList.Request)
     
 }
 
@@ -30,7 +30,7 @@ class SpotifyTracklistWorker: SpotifyTracklistWorkerProtocol {
     
     var interactor: SpotifyTracklistWorkerDelegate?
     
-    func spotifyRequestList(request: Tracklist.FetchTrackList.Request, pagination: PaginationWorker) {
+    func spotifyRequestList(request: Tracklist.FetchTrackList.Request) {
         
     }
 }
