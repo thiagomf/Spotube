@@ -8,7 +8,7 @@
 
 import UIKit
 
-enum SpotifyLogin
+enum Login
 {
     // MARK: Use cases
     

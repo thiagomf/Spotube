@@ -38,7 +38,7 @@ extension SpotifyLoginInteractor: SpotifyLoginWorkerDelegate {
     func spotifyLogger(user: SpotifyUser?, token: String) {
         
         if let userSpotify = user {
-            let response = SpotifyLogin.FetchUser.Response(user: userSpotify, token: token)
+            let response = Login.FetchUser.Response(user: userSpotify, token: token)
             presenter?.presentFetchedUser(response: response)
         } else {
             presenter?.presentNilUser()

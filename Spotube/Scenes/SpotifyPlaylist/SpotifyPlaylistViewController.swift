@@ -18,6 +18,8 @@ protocol SpotifyPlaylistDisplayLogic: class {
     
     var navigation: UINavigationController? { get }
     
+    func showHelloUser(viewModel: Playlist.ShowHello.ViewModel)
+    
     func displayFetchedPlaylist(viewModel: Playlist.FetchPlayList.ViewModel)
 }
 
@@ -35,8 +37,6 @@ class SpotifyPlaylistViewController: UIViewController {
     
     var itens: [Playlist.FetchPlayList.ViewModel.DisplayedPlayList] = []
     
-    var user: SpotifyLogin.FetchUser.ViewModel.DisplayedUser?
-    
     let hud = JGProgressHUD(style: .light)
     
     override func viewDidLoad() {
@@ -50,11 +50,8 @@ class SpotifyPlaylistViewController: UIViewController {
     
     func setupNavigation() {
         self.navigationController?.navigationBar.prefersLargeTitles = true
-        if let nome = user?.displayName {
-             self.title = "Olá \(nome)"
-        }
-        
         self.navigationController?.navigationItem.largeTitleDisplayMode = .automatic
+        interactor?.showGreeting()
     }
     
     func confTb() {
@@ -71,14 +68,19 @@ class SpotifyPlaylistViewController: UIViewController {
     
     func fetchPlayList(){
         hud.show(in: self.view)
-        if let id = user?.id, let token = user?.token {
-            let request = Playlist.FetchPlayList.Request(token: token, userId: id)
+        
+        if let token = interactor?.tokenId, let user = interactor?.userId {
+            let request = Playlist.FetchPlayList.Request(token: token, userId: user)
             interactor?.playListSpotify(request: request)
         }
     }
 }
 
 extension SpotifyPlaylistViewController: SpotifyPlaylistDisplayLogic {
+    func showHelloUser(viewModel: Playlist.ShowHello.ViewModel) {
+        self.title = viewModel.greeting
+    }
+    
    
     func displayFetchedPlaylist(viewModel: Playlist.FetchPlayList.ViewModel) {
         itens = viewModel.displayedPlaylist
@@ -106,6 +108,11 @@ extension SpotifyPlaylistViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let displayedList = itens[indexPath.row]
+        
+        if let token = interactor?.tokenId {
+            wireFrame?.routerGoPLaylistMusic(item: displayedList, token: token)
+        }
+        
         print("You tapped cell number\(indexPath.row) : \(displayedList.name).")
     }
 }
@@ -113,8 +120,8 @@ extension SpotifyPlaylistViewController: UITableViewDataSource {
 extension SpotifyPlaylistViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if indexPath.row == itens.count - 2 {
-            if let id = user?.id, let token = user?.token {
-                let request = Playlist.FetchPlayList.Request(token: token, userId: id)
+            if let token = interactor?.tokenId, let user = interactor?.userId {
+                let request = Playlist.FetchPlayList.Request(token: token, userId: user)
                 interactor?.playListSpotify(request: request)
             }
         }

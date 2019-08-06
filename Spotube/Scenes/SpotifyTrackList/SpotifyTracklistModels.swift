@@ -8,6 +8,34 @@
 
 import UIKit
 
-class SpotifyTracklistModels: NSObject {
-
+enum Tracklist
+{
+    // MARK: Use cases
+    
+    enum FetchTrackList
+    {
+        struct Request
+        {
+            var token: String
+            var playlistId: String
+        }
+        
+        struct Response
+        {
+            var tracklist: SpotifyTracklist?
+        }
+        
+        struct ViewModel
+        {
+            struct DisplayedTrackList
+            {
+                var name: String
+                var image: String
+                var id: String
+                var owner: String
+            }
+            
+            var displayedPlaylist: [DisplayedTrackList]
+        }
+    }
 }

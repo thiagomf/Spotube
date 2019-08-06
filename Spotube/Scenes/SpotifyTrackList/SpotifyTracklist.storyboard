@@ -13,7 +13,7 @@
         <!--Navigation Controller-->
         <scene sceneID="yzl-lu-SiK">
             <objects>
-                <navigationController id="nye-hO-eOH" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="SpotifyTracklistViewController" id="nye-hO-eOH" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="46j-P8-XNC">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -26,10 +26,10 @@
             </objects>
             <point key="canvasLocation" x="-1442" y="188"/>
         </scene>
-        <!--View Controller-->
+        <!--Spotify Tracklist View Controller-->
         <scene sceneID="MUh-xZ-Trv">
             <objects>
-                <viewController id="sfC-dN-zYn" sceneMemberID="viewController">
+                <viewController id="sfC-dN-zYn" customClass="SpotifyTracklistViewController" customModule="Spotube" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hhH-w9-rja">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -59,6 +59,9 @@
                         <viewLayoutGuide key="safeArea" id="i4E-Kq-fQQ"/>
                     </view>
                     <navigationItem key="navigationItem" id="gFA-yS-ivi"/>
+                    <connections>
+                        <outlet property="trackTbv" destination="mtr-aa-Vm4" id="cQT-PD-syj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oN9-JF-hwF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

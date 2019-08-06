@@ -8,6 +8,20 @@
 
 import UIKit
 
-class SpotifyTracklistPresenter: NSObject {
+protocol SpotifyTracklistPresentationLogic: class {
+    
+    var viewController: SpotifyTracklistDisplayLogic? { get set }
+    
+    func presentFetchedTracklist(response: Tracklist.FetchTrackList.Response)
+}
+
+class SpotifyTracklistPresenter: SpotifyTracklistPresentationLogic {
+    
+    var viewController: SpotifyTracklistDisplayLogic?
+    
+    func presentFetchedTracklist(response: Tracklist.FetchTrackList.Response) {
+        
+    }
+    
 
 }

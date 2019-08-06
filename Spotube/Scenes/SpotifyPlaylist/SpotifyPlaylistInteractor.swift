@@ -14,7 +14,16 @@ protocol SpotifyPlaylistBusinessLogic: class {
     
     var presenter: SpotifyPlaylistPresentationLogic? { get set }
     
+    var name: String { get set }
+    
+    var tokenId: String { get set }
+    
+    var userId: String { get set }
+    
+    func showGreeting()
+    
     func playListSpotify(request: Playlist.FetchPlayList.Request)
+    
 }
 
 protocol SpotifyPlaylistWorkerDelegate: class {
@@ -23,6 +32,12 @@ protocol SpotifyPlaylistWorkerDelegate: class {
 }
 
 class SpotifyPlaylistInteractor: SpotifyPlaylistBusinessLogic {
+
+    var name: String = ""
+
+    var tokenId: String = ""
+    
+    var userId: String = ""
     
     var worker: SpotifyPlaylistWorkerProtocol?
     
@@ -37,6 +52,12 @@ class SpotifyPlaylistInteractor: SpotifyPlaylistBusinessLogic {
         worker?.spotifyRequestList(request: request, pagination: pagination)
         
     }
+    
+    func showGreeting() {
+        let response = Playlist.ShowHello.Response(name: name)
+        presenter?.showHello(response: response)
+    }
+    
 }
 
 extension SpotifyPlaylistInteractor: SpotifyPlaylistWorkerDelegate {

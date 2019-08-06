@@ -15,7 +15,7 @@ protocol SpotifyLoginDisplayLogic: class {
     
     var wireFrame: SpotifyLoginWireframeProtocol? { get set }
     
-    func displayFetchedUser(viewModel: SpotifyLogin.FetchUser.ViewModel?)
+    func displayFetchedUser(viewModel: Login.FetchUser.ViewModel?)
 }
 
 class SpotifyLoginViewController: UIViewController {
@@ -40,7 +40,7 @@ class SpotifyLoginViewController: UIViewController {
 
 extension SpotifyLoginViewController: SpotifyLoginDisplayLogic {
     
-    func displayFetchedUser(viewModel: SpotifyLogin.FetchUser.ViewModel?) {
+    func displayFetchedUser(viewModel: Login.FetchUser.ViewModel?) {
         
         hud.dismiss()
         

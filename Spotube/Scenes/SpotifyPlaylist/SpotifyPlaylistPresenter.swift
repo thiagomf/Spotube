@@ -13,6 +13,8 @@ protocol SpotifyPlaylistPresentationLogic: class {
     var viewController: SpotifyPlaylistDisplayLogic? { get set }
     
     func presentFetchedPlaylist(response: Playlist.FetchPlayList.Response)
+    
+    func showHello(response: Playlist.ShowHello.Response)
 }
 
 class SpotifyPlaylistPresenter: SpotifyPlaylistPresentationLogic {
@@ -37,4 +39,9 @@ class SpotifyPlaylistPresenter: SpotifyPlaylistPresentationLogic {
         return itens.map { Playlist.FetchPlayList.ViewModel.DisplayedPlayList(name: $0.name, image: $0.images[0].url, id: $0.id, owner: $0.owner.displayName) }
     }
     
+    func showHello(response: Playlist.ShowHello.Response) {
+        let hello = "Olá \(response.name)"
+        let viewModel = Playlist.ShowHello.ViewModel(greeting: hello)
+        viewController?.showHelloUser(viewModel: viewModel)
+    }
 }

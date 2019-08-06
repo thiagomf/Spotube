@@ -11,15 +11,16 @@ import UIKit
 //MARK: Wireframe -
 protocol SpotifyPlaylistWireframeProtocol: class {
     
-    static func createPlaylistScreenModule(user: SpotifyLogin.FetchUser.ViewModel.DisplayedUser?) -> UINavigationController
+    static func createPlaylistScreenModule(user: Login.FetchUser.ViewModel.DisplayedUser) -> UINavigationController
     
     // PRESENTER -> WIREFRAME
-    func routerGoPLaylistMusic(item: Item)
+    func routerGoPLaylistMusic(item: Playlist.FetchPlayList.ViewModel.DisplayedPlayList,
+                               token: String)
 }
 
 class SpotifyPlaylistRouter: SpotifyPlaylistWireframeProtocol {
     
-    static func createPlaylistScreenModule(user: SpotifyLogin.FetchUser.ViewModel.DisplayedUser?) -> UINavigationController {
+    static func createPlaylistScreenModule(user: Login.FetchUser.ViewModel.DisplayedUser) -> UINavigationController {
         
         let navController = Storyboard.spotifyPlaylistStoryboard.instantiateViewController(withIdentifier: "PlaylistNavigation") as! UINavigationController
         if let view = navController.children.first as? SpotifyPlaylistViewController {
@@ -30,9 +31,11 @@ class SpotifyPlaylistRouter: SpotifyPlaylistWireframeProtocol {
             let remoteDataManager: SpotifyPlaylistAPIInputProtocol = SpotifyPlaylistAPI()
             let wireFrame: SpotifyPlaylistWireframeProtocol = SpotifyPlaylistRouter()
             
-            view.user = user
             view.interactor = interactor
             view.wireFrame = wireFrame
+            interactor.name = user.displayName
+            interactor.tokenId = user.token
+            interactor.userId = user.id
             interactor.presenter = presenter
             interactor.worker = worker
             worker.remoteDataManager = remoteDataManager
@@ -45,9 +48,12 @@ class SpotifyPlaylistRouter: SpotifyPlaylistWireframeProtocol {
         
     }
     
-    func routerGoPLaylistMusic(item: Item) {
+    func routerGoPLaylistMusic(item: Playlist.FetchPlayList.ViewModel.DisplayedPlayList,
+                               token: String) {
         
-       
+        let window = UIApplication.shared.delegate?.window
+        window??.rootViewController = SpotifyTracklistRouter.createTracklistScreenModule(token: token, playList: item)
+        window??.makeKeyAndVisible()
     }
     
 

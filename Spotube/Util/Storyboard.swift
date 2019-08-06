@@ -14,4 +14,5 @@ struct Storyboard {
     
     static let spotifyPlaylistStoryboard = UIStoryboard(name: "SpotifyPlaylist", bundle: Bundle.main)
 
+    static let spotifyTracklistStoryboard = UIStoryboard(name: "SpotifyTracklist", bundle: Bundle.main)
 }

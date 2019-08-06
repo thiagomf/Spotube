@@ -38,4 +38,19 @@ enum Playlist
             var displayedPlaylist: [DisplayedPlayList]
         }
     }
+    
+    enum ShowHello
+    {
+        struct Request
+        {
+        }
+        struct Response
+        {
+            var name: String
+        }
+        struct ViewModel
+        {
+            var greeting: String
+        }
+    }
 }

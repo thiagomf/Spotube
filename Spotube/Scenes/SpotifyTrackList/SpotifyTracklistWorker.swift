@@ -8,6 +8,36 @@
 
 import UIKit
 
-class SpotifyTracklistWorker: NSObject {
+protocol SpotifyTracklistWorkerProtocol: class {
+    
+    var remoteDataManager: SpotifyTracklistAPIInputProtocol? { get set }
+    
+    var interactor: SpotifyTracklistWorkerDelegate? { get set }
+    
+    func spotifyRequestList(request: Tracklist.FetchTrackList.Request, pagination: PaginationWorker)
+    
+}
 
+protocol SpotifyTracklistOutputProtocol: class {
+    
+    func fetchTrackListSpotify(itens: SpotifyTracklist?)
+    
+}
+
+class SpotifyTracklistWorker: SpotifyTracklistWorkerProtocol {
+    
+    var remoteDataManager: SpotifyTracklistAPIInputProtocol?
+    
+    var interactor: SpotifyTracklistWorkerDelegate?
+    
+    func spotifyRequestList(request: Tracklist.FetchTrackList.Request, pagination: PaginationWorker) {
+        
+    }
+}
+
+extension SpotifyTracklistWorker: SpotifyTracklistOutputProtocol {
+    
+    func fetchTrackListSpotify(itens: SpotifyTracklist?) {
+        
+    }
 }
