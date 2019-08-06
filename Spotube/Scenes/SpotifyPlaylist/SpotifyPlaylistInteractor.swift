@@ -65,8 +65,8 @@ extension SpotifyPlaylistInteractor: SpotifyPlaylistWorkerDelegate {
         
         pagination.pagNext = itens?.next
         
-        let reponse = Playlist.FetchPlayList.Response(playlist: itens)
-        presenter?.presentFetchedPlaylist(response: reponse)
+        let response = Playlist.FetchPlayList.Response(playlist: itens)
+        presenter?.presentFetchedPlaylist(response: response)
     }
     
 }

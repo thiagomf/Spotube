@@ -31,13 +31,13 @@ class SpotifyTracklistWorker: SpotifyTracklistWorkerProtocol {
     var interactor: SpotifyTracklistWorkerDelegate?
     
     func spotifyRequestList(request: Tracklist.FetchTrackList.Request) {
-        
+        remoteDataManager?.callAPITracklist(request: request)
     }
 }
 
 extension SpotifyTracklistWorker: SpotifyTracklistOutputProtocol {
     
     func fetchTrackListSpotify(itens: SpotifyTracklist?) {
-        
+        interactor?.spotifyTrackList(itens: itens)
     }
 }

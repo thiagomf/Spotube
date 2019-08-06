@@ -32,7 +32,7 @@ class SpotifyTracklistAPI: NSObject, SpotifyTracklistAPIInputProtocol {
     func fetch(request: Tracklist.FetchTrackList.Request,
                completion: @escaping (SpotifyTracklist?) -> Void) {
         
-        guard let url = URL(string: "https://api.spotify.com/v1/playlists/\(request.playlistId)") else {
+        guard let url = URL(string: "https://api.spotify.com/v1/playlists/\(request.playlistId)/tracks?fields=items(track(album(artists%2C%20images%2C%20name)%2C%20name%2C%20popularity))") else {
             completion(nil)
             return
         }

@@ -27,15 +27,31 @@ enum Tracklist
         
         struct ViewModel
         {
+            
             struct DisplayedTrackList
             {
-                var name: String
-                var image: String
-                var id: String
-                var owner: String
+                var songName: String
+                var artistName: String
+                var albumName: String
+                var albumImage: String
             }
             
-            var displayedPlaylist: [DisplayedTrackList]
+            var displayedTracklist: [DisplayedTrackList]
+        }
+    }
+    
+    enum PlayListName
+    {
+        struct Request
+        {
+        }
+        struct Response
+        {
+            var name: String
+        }
+        struct ViewModel
+        {
+            var listName: String
         }
     }
 }

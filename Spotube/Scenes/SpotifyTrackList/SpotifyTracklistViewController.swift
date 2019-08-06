@@ -19,6 +19,8 @@ protocol SpotifyTracklistDisplayLogic: class {
     var navigation: UINavigationController? { get }
     
     func displayFetchedTracklist(viewModel: Tracklist.FetchTrackList.ViewModel)
+    
+    func showListName(viewModel: Tracklist.PlayListName.ViewModel)
 }
 
 class SpotifyTracklistViewController: UIViewController {
@@ -42,11 +44,22 @@ class SpotifyTracklistViewController: UIViewController {
 
         setupNavigation()
         confHUD()
+        confTb()
         fetchPTrackList()
     }
     
     func setupNavigation() {
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+        self.navigationController?.navigationItem.largeTitleDisplayMode = .automatic
+        interactor?.showListName()
+    }
+    
+    func confTb() {
         
+        let customCell = UINib(nibName: "SpotifyPlaylistViewCell", bundle: nil)
+        trackTbv.register(customCell, forCellReuseIdentifier: "playlistCell")
+        trackTbv.rowHeight = UITableView.automaticDimension
+        trackTbv.estimatedRowHeight = 50
     }
     
     func confHUD() {
@@ -55,31 +68,45 @@ class SpotifyTracklistViewController: UIViewController {
     
     func fetchPTrackList(){
         hud.show(in: self.view)
-//        if let id = user?.id, let token = user?.token {
-//            let request = Playlist.FetchPlayList.Request(token: token, userId: id)
-//            interactor?.playListSpotify(request: request)
-//        }
+        interactor?.trackListSpotify()
+    }
+    
+    
+    @IBAction func backAction(_ sender: Any) {
+        navigation?.popViewController(animated: true)
     }
     
 }
 
 extension SpotifyTracklistViewController: SpotifyTracklistDisplayLogic {
+    
+    func showListName(viewModel: Tracklist.PlayListName.ViewModel) {
+        self.title = "\(viewModel.listName)"
+    }
+    
 
     func displayFetchedTracklist(viewModel: Tracklist.FetchTrackList.ViewModel) {
-        
+        itens = viewModel.displayedTracklist
+        trackTbv.reloadData()
+        hud.dismiss()
     }
     
 }
 
-//extension SpotifyTracklistViewController: UITableViewDelegate {
-//    
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return 1
-//    }
-//    
-////    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-////
-////
-////    }
-//    
-//}
+extension SpotifyTracklistViewController: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return itens.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let displayedList = itens[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "playlistCell") as! SpotifyPlaylistViewCell
+        let url = URL.init(string: displayedList.albumImage)
+        cell.albumImg?.kf.setImage(with: url)
+        cell.albumLb?.text = displayedList.songName
+        cell.ownerLb?.text = "criador: \(displayedList.artistName)"
+        return cell
+    }
+    
+}

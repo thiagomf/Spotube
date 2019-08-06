@@ -18,7 +18,11 @@ protocol SpotifyTracklistBusinessLogic: class {
     
     var playlistId: String { get set }
     
-    func trackListSpotify(request: Tracklist.FetchTrackList.Request)
+    var listName: String { get set }
+    
+    func trackListSpotify()
+    
+    func showListName()
 }
 
 protocol SpotifyTracklistWorkerDelegate: class {
@@ -36,15 +40,24 @@ class SpotifyTracklistInteractor: SpotifyTracklistBusinessLogic {
     
     var playlistId: String = ""
     
-    func trackListSpotify(request: Tracklist.FetchTrackList.Request) {
+    var listName: String = ""
+    
+    func trackListSpotify() {
+        let request = Tracklist.FetchTrackList.Request(token: token, playlistId: playlistId)
         worker?.spotifyRequestList(request: request)
+    }
+    
+    func showListName() {
+        let response = Tracklist.PlayListName.Response(name: listName)
+        presenter?.presenterListName(response: response)
     }
 }
 
 extension SpotifyTracklistInteractor: SpotifyTracklistWorkerDelegate {
     
     func spotifyTrackList(itens: SpotifyTracklist?) {
-        
+        let response = Tracklist.FetchTrackList.Response(tracklist: itens)
+        presenter?.presentFetchedTracklist(response: response)
     }
     
 }

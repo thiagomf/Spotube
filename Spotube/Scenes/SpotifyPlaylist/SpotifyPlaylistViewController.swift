@@ -106,7 +106,7 @@ extension SpotifyPlaylistViewController: UITableViewDataSource {
         let displayedList = itens[indexPath.row]
         
         if let token = interactor?.tokenId {
-            wireFrame?.routerGoPLaylistMusic(playList: displayedList.id, token: token)
+            wireFrame?.routerGoTracklistMusic(playList: displayedList.id, token: token, listName: displayedList.name, nav: navigation)
         }
         
         print("You tapped cell number\(indexPath.row) : \(displayedList.name).")
