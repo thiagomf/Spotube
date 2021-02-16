@@ -57,7 +57,7 @@ class SpotifyTracklistAPI: NSObject, SpotifyTracklistAPIInputProtocol {
                             
                             let tracklist = try jsonDecoder.decode(SpotifyTracklist.self, from: jsonData)
                             completion(tracklist)
-                        } catch let error{
+                        } catch let error {
                             print("Erro: \(error.localizedDescription)")
                             completion(nil)
                             return

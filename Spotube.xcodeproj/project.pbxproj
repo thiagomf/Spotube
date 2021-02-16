@@ -16,6 +16,9 @@
 		71D28B9E22AA9F79007F4A31 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71D28B9C22AA9F79007F4A31 /* LaunchScreen.storyboard */; };
 		71D28BA922AA9F79007F4A31 /* SpotubeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71D28BA822AA9F79007F4A31 /* SpotubeTests.swift */; };
 		71D28BB422AA9F79007F4A31 /* SpotubeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71D28BB322AA9F79007F4A31 /* SpotubeUITests.swift */; };
+		861C852F22FB00CD00C0270F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 861C852E22FB00CD00C0270F /* GoogleService-Info.plist */; };
+		861C853022FB00CD00C0270F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 861C852E22FB00CD00C0270F /* GoogleService-Info.plist */; };
+		861C853122FB00CD00C0270F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 861C852E22FB00CD00C0270F /* GoogleService-Info.plist */; };
 		86204BF322F76461006426C7 /* SpotifyPlaylistAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86204BF222F76461006426C7 /* SpotifyPlaylistAPI.swift */; };
 		863138EB22F0ADEE0097A72E /* SpotifyiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 863138EA22F0ADED0097A72E /* SpotifyiOS.framework */; };
 		865058D422F369FD00E56DF7 /* SpotifyUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865058D322F369FD00E56DF7 /* SpotifyUser.swift */; };
@@ -85,6 +88,7 @@
 		71D28BB322AA9F79007F4A31 /* SpotubeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotubeUITests.swift; sourceTree = "<group>"; };
 		71D28BB522AA9F79007F4A31 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7E27A8783F380173CCF7CEA4 /* Pods-SpotubeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpotubeTests.debug.xcconfig"; path = "Target Support Files/Pods-SpotubeTests/Pods-SpotubeTests.debug.xcconfig"; sourceTree = "<group>"; };
+		861C852E22FB00CD00C0270F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		86204BF222F76461006426C7 /* SpotifyPlaylistAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyPlaylistAPI.swift; sourceTree = "<group>"; };
 		863138EA22F0ADED0097A72E /* SpotifyiOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpotifyiOS.framework; path = Spotube/SpotifyiOS.framework; sourceTree = "<group>"; };
 		863138ED22F0AF740097A72E /* Spotube-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Spotube-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -322,6 +326,7 @@
 		86F45BF522F276410024C165 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				861C852E22FB00CD00C0270F /* GoogleService-Info.plist */,
 				71D28B9C22AA9F79007F4A31 /* LaunchScreen.storyboard */,
 				71D28B9A22AA9F79007F4A31 /* Assets.xcassets */,
 				71D28B9F22AA9F79007F4A31 /* Info.plist */,
@@ -373,6 +378,7 @@
 				71D28B8A22AA9F77007F4A31 /* Frameworks */,
 				71D28B8B22AA9F77007F4A31 /* Resources */,
 				7CDF8396097CC1192A1E5ACA /* [CP] Embed Pods Frameworks */,
+				3A021583BA7A3BF1810748C5 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -471,6 +477,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				71D28B9E22AA9F79007F4A31 /* LaunchScreen.storyboard in Resources */,
+				861C852F22FB00CD00C0270F /* GoogleService-Info.plist in Resources */,
 				86BC7C6522F4EE0D000512AF /* SpotifyPlaylist.storyboard in Resources */,
 				71D28B9B22AA9F79007F4A31 /* Assets.xcassets in Resources */,
 				8687488F22F8A94400105FA9 /* SpotifyTracklist.storyboard in Resources */,
@@ -484,6 +491,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				861C853022FB00CD00C0270F /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -491,12 +499,35 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				861C853122FB00CD00C0270F /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		3A021583BA7A3BF1810748C5 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Spotube/Pods-Spotube-resources.sh",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Spotube/Pods-Spotube-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		3F3376F959E0F64C3877A62B /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -530,6 +561,9 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Spotube/Pods-Spotube-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleAPIClientForREST/GoogleAPIClientForREST.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/JGProgressHUD/JGProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 			);
@@ -539,6 +573,9 @@
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleAPIClientForREST.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JGProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 			);

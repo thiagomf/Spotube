@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>615209913508-pnmu1vt4iei89njil10s44cq1l75nn3d.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.615209913508-pnmu1vt4iei89njil10s44cq1l75nn3d</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCbwRSN9IetoYp7loKCB5X3_Cu0Xmfvx-s</string>
+	<key>GCM_SENDER_ID</key>
+	<string>615209913508</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.br.thiagomf.Spotube</string>
+	<key>PROJECT_ID</key>
+	<string>spotube-249101</string>
+	<key>STORAGE_BUCKET</key>
+	<string>spotube-249101.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:615209913508:ios:a77c664e736c91b8</string>
+	<key>DATABASE_URL</key>
+	<string>https://spotube-249101.firebaseio.com</string>
+</dict>
+</plist>

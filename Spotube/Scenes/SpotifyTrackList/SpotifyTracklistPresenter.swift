@@ -19,7 +19,7 @@ protocol SpotifyTracklistPresentationLogic: class {
 
 class SpotifyTracklistPresenter: SpotifyTracklistPresentationLogic {
 
-    var viewController: SpotifyTracklistDisplayLogic?
+    weak var viewController: SpotifyTracklistDisplayLogic?
     
     func presentFetchedTracklist(response: Tracklist.FetchTrackList.Response) {
         
